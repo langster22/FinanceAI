@@ -1,0 +1,4343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI-Enabled Future of Finance — Deloitte</title>
+<meta name="description" content="An interactive conversation tool for CFOs, Controllers, and VPs of FP&amp;A: assess AI readiness, prioritize Finance AI use cases, and chart a path forward.">
+
+<!-- Keep the hosted page out of search engine results -->
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Browser tab theme color -->
+<meta name="theme-color" content="#0d0d0d">
+
+<!-- Inline SVG favicon — Deloitte green dot on dark, no external request -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0d0d'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%2386EB22'/%3E%3C/svg%3E">
+
+<!-- Open Graph — clean preview card when the link is pasted into Teams, Slack, email -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI-Enabled Future of Finance">
+<meta property="og:description" content="An interactive conversation tool for Finance leaders: assess AI readiness, prioritize use cases, and chart a path forward.">
+<meta property="og:site_name" content="Deloitte">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI-Enabled Future of Finance">
+<meta name="twitter:description" content="An interactive conversation tool for Finance leaders: assess AI readiness, prioritize use cases, and chart a path forward.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  /* ============ CSS VARIABLES ============ */
+  :root {
+    /* Deloitte palette — dark theme variant */
+    --dl-green: #86BC25;
+    --dl-neon-green: #86EB22;
+    --dl-blue: #00A3E0;
+    --dl-light-blue: #A0DCFF;
+    --dl-blue-dark: #005587;
+
+    /* PDV dark-theme surfaces */
+    --bg-base: #0d0d0d;
+    --bg-elevated: #1a1a1a;
+    --bg-card: #1f1f1f;
+    --bg-card-hover: #262626;
+
+    /* Borders */
+    --border-subtle: #2a2a2a;
+    --border-active: var(--dl-neon-green);
+
+    /* Text */
+    --text-primary: #f0f0f0;
+    --text-secondary: #b8b8b8;
+    --text-tertiary: #888888;
+    --text-on-green: #0d0d0d;
+
+    /* Status (supplemental brand colors) */
+    --status-amber: #E8A317;
+
+    /* Layout */
+    --max-width: 1280px;
+    --tab-bar-height: 64px;
+  }
+
+  /* ============ RESET / BASE ============ */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    color: var(--text-primary);
+    background-color: var(--bg-base);
+    line-height: 1.55;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Halftone dot pattern — PDV-inspired, subtle, corners only */
+  body::before, body::after {
+    content: "";
+    position: fixed;
+    width: 480px;
+    height: 480px;
+    background-image:
+      radial-gradient(circle, rgba(134, 235, 34, 0.18) 1.2px, transparent 1.5px);
+    background-size: 14px 14px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
+    mask-image: radial-gradient(circle at center, black 0%, transparent 65%);
+    -webkit-mask-image: radial-gradient(circle at center, black 0%, transparent 65%);
+  }
+  body::before { top: -180px; right: -180px; }
+  body::after { bottom: -240px; left: -240px; opacity: 0.4; }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 { margin: 0 0 0.5em; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+  h1 { font-size: 2.5rem; font-weight: 300; letter-spacing: -0.02em; }
+  h2 { font-size: 1.875rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); font-weight: 600; }
+
+  p { margin: 0 0 1em; color: var(--text-secondary); }
+
+  /* Headline accent word — italic + neon green per brand on dark */
+  .accent-word { font-style: italic; color: var(--dl-neon-green); font-weight: 700; }
+
+  /* Eyebrow / section label */
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dl-neon-green);
+    margin: 0 0 0.75rem;
+    display: inline-block;
+  }
+
+  /* ============ APP SHELL ============ */
+  .app {
+    position: relative;
+    z-index: 1;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+  }
+
+  /* ============ APP FOOTER ============ */
+  .app-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+  }
+  .app-footer-meta {
+    letter-spacing: 0.04em;
+  }
+
+  /* ============ HEADER ============ */
+  .app-header {
+    padding: 2rem 0 1.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .brand-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .brand-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--dl-neon-green);
+    margin-bottom: 4px;
+  }
+  .brand-tagline {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+  }
+
+  .header-meta {
+    text-align: right;
+  }
+  .header-meta .meta-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-tertiary); }
+  .header-meta .meta-value { font-size: 0.9rem; color: var(--text-secondary); }
+
+  /* ============ TAB BAR ============ */
+  .tab-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    gap: 0;
+    background: rgba(13, 13, 13, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    margin: 0 -2rem;
+    padding: 0 2rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+
+  .tab {
+    position: relative;
+    flex: 0 0 auto;
+    padding: 1.25rem 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-tertiary);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: color 180ms ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+  .tab:hover { color: var(--text-secondary); }
+  .tab.active { color: var(--text-primary); }
+  .tab.active::after {
+    content: "";
+    position: absolute;
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: -1px;
+    height: 2px;
+    background: var(--dl-neon-green);
+  }
+  .tab-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    background: var(--bg-elevated);
+    border-radius: 999px;
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 180ms ease, color 180ms ease;
+  }
+  .tab.active .tab-num {
+    background: var(--dl-neon-green);
+    color: var(--text-on-green);
+  }
+
+  /* ============ TAB PANELS ============ */
+  .panel {
+    display: none;
+    padding: 3rem 0 2rem;
+    animation: fadeIn 320ms ease;
+  }
+  .panel.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel-header {
+    margin-bottom: 2.5rem;
+    max-width: 880px;
+  }
+  .panel-header .deck {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+    margin-top: 0.75rem;
+    line-height: 1.55;
+  }
+
+  /* ============ FOOTER / NAV CONTROLS ============ */
+  .panel-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .btn {
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 0.85rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 180ms ease, transform 120ms ease, color 180ms ease, border-color 180ms ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--dl-neon-green);
+    color: var(--text-on-green);
+  }
+  .btn-primary:hover { background: #95f636; transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
+  }
+  .btn-ghost:hover { color: var(--text-primary); border-color: var(--text-tertiary); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  /* Hide things */
+  .hidden { display: none !important; }
+
+  /* ============ UTIL ============ */
+  .source-line {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    font-style: italic;
+    margin-top: 1.5rem;
+  }
+  .inline-source {
+    color: var(--text-secondary);
+    text-decoration: underline;
+    text-decoration-color: var(--border-subtle);
+    text-underline-offset: 3px;
+    transition: color 180ms ease, text-decoration-color 180ms ease;
+  }
+  .inline-source:hover {
+    color: var(--dl-neon-green);
+    text-decoration-color: var(--dl-neon-green);
+  }
+
+  /* ============ TAB 1: FIVE FORCES GRID ============ */
+  .forces-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 4rem;
+  }
+  .force-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.5rem 1.25rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 220ms ease, transform 220ms ease, background 220ms ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .force-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--dl-neon-green);
+    transform: scaleY(0.3);
+    transform-origin: top;
+    transition: transform 280ms ease;
+  }
+  .force-card:hover {
+    border-color: var(--dl-neon-green);
+    transform: translateY(-2px);
+    background: var(--bg-card-hover);
+  }
+  .force-card:hover::before { transform: scaleY(1); }
+
+  .force-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--dl-neon-green);
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .force-card h3 {
+    font-size: 1.0625rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  .force-card p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  /* External link glyph — appears on hover */
+  .ext-icon {
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--dl-neon-green);
+    opacity: 0;
+    transition: opacity 200ms ease, transform 200ms ease;
+    display: inline-block;
+  }
+  .force-card:hover .ext-icon,
+  .stat-block:hover .ext-icon { opacity: 1; transform: translate(2px, -2px); }
+
+  /* ============ SECTION DIVIDER ============ */
+  .section-divider {
+    margin: 1rem 0 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .section-divider h2 { margin-bottom: 0.5rem; }
+  .section-divider p { color: var(--text-secondary); margin-top: 0.75rem; }
+
+  /* ============ TAB 1: ROLE OF FINANCE STATS ============ */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .stat-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    transition: border-color 220ms ease, background 220ms ease, transform 220ms ease;
+    text-decoration: none;
+    color: inherit;
+  }
+  .stat-block:hover {
+    border-color: var(--dl-neon-green);
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--dl-neon-green);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1.35;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .stat-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .stat-row + .stat-row {
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .stat-num {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--dl-neon-green);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    display: block;
+  }
+  .stat-text {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+    display: block;
+  }
+
+  /* ============ TAB 2: THREE FINANCE ROLES ============ */
+  .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .role-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.75rem 1.5rem;
+    position: relative;
+    border-top-width: 3px;
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+    width: 100%;
+    display: block;
+  }
+  .role-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+  .role-card--finance { border-top-color: var(--dl-green); }
+  .role-card--enterprise { border-top-color: var(--dl-neon-green); }
+  .role-card--market { border-top-color: var(--dl-blue); }
+
+  /* Rank badge — appears top-right when card is ranked */
+  .role-rank-badge {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    background: var(--bg-elevated);
+    color: var(--text-tertiary);
+    border: 1px solid var(--border-subtle);
+    transition: all 200ms ease;
+  }
+  .role-card:not(.ranked) .role-rank-badge {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  .role-card.rank-1 .role-rank-badge {
+    background: var(--dl-neon-green);
+    color: var(--text-on-green);
+    border-color: var(--dl-neon-green);
+    box-shadow: 0 0 0 4px rgba(134, 235, 34, 0.18);
+  }
+  .role-card.rank-2 .role-rank-badge {
+    background: var(--dl-blue);
+    color: #fff;
+    border-color: var(--dl-blue);
+    box-shadow: 0 0 0 4px rgba(0, 163, 224, 0.18);
+  }
+  .role-card.rank-3 .role-rank-badge {
+    background: var(--bg-elevated);
+    color: var(--text-secondary);
+    border-color: var(--text-tertiary);
+  }
+
+  /* Ranked-card visual emphasis */
+  .role-card.ranked {
+    background: var(--bg-card-hover);
+  }
+  .role-card.rank-1 { box-shadow: inset 0 0 0 1px rgba(134, 235, 34, 0.5); }
+  .role-card.rank-2 { box-shadow: inset 0 0 0 1px rgba(0, 163, 224, 0.5); }
+
+  .role-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.35rem 0.7rem;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    padding-right: 0.7rem;
+  }
+  .role-card--finance .role-tag { background: rgba(134, 188, 37, 0.15); color: var(--dl-green); }
+  .role-card--enterprise .role-tag { background: rgba(134, 235, 34, 0.15); color: var(--dl-neon-green); }
+  .role-card--market .role-tag { background: rgba(0, 163, 224, 0.15); color: var(--dl-blue); }
+
+  .role-card h3 {
+    font-size: 1.0625rem;
+    margin-bottom: 0.65rem;
+    line-height: 1.3;
+    padding-right: 3rem; /* clear badge */
+  }
+  .role-card p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+  .role-constants {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 1rem;
+  }
+  .role-constants li {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    padding: 0.35rem 0 0.35rem 1.1rem;
+    position: relative;
+    line-height: 1.4;
+  }
+  .role-constants li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+  }
+  .role-card--finance .role-constants li::before { background: var(--dl-green); }
+  .role-card--enterprise .role-constants li::before { background: var(--dl-neon-green); }
+  .role-card--market .role-constants li::before { background: var(--dl-blue); }
+
+  /* Tap-to-rank prompt below the three cards */
+  .roles-prompt {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.25rem;
+    background: rgba(134, 235, 34, 0.06);
+    border-left: 3px solid var(--dl-neon-green);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 2.5rem;
+  }
+  .roles-prompt strong { color: var(--text-primary); font-weight: 700; }
+  .roles-prompt-icon {
+    font-size: 1.25rem;
+    color: var(--dl-neon-green);
+    font-weight: 700;
+    line-height: 1;
+  }
+  .roles-prompt-1 { color: var(--dl-neon-green); font-weight: 700; }
+  .roles-prompt-2 { color: var(--dl-blue); font-weight: 700; }
+  .roles-prompt-3 { color: var(--text-primary); font-weight: 700; }
+
+  /* ============ CALLOUT BAR ============ */
+  .callout-bar {
+    background: linear-gradient(90deg, rgba(134, 235, 34, 0.08), rgba(0, 163, 224, 0.08));
+    border-left: 3px solid var(--dl-neon-green);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    color: var(--text-primary);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 1rem;
+  }
+
+  /* ============ TAB 2: MATURITY LADDER ============ */
+  .ladder {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .ladder-rung {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 1.5rem;
+    align-items: flex-start;
+    position: relative;
+    transition: transform 200ms ease, border-color 200ms ease;
+  }
+  .ladder-rung:hover { transform: translateX(4px); border-color: var(--dl-neon-green); }
+  .ladder-rung--1 { margin-left: 0; }
+  .ladder-rung--2 { margin-left: 2.5rem; }
+  .ladder-rung--3 { margin-left: 5rem; background: linear-gradient(135deg, var(--bg-card), rgba(134, 235, 34, 0.06)); }
+
+  .ladder-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .ladder-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--text-tertiary);
+  }
+  .ladder-stage {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .ladder-pill {
+    display: inline-block;
+    width: fit-content;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 3px;
+    background: var(--dl-neon-green);
+    color: var(--text-on-green);
+    margin-top: 0.25rem;
+  }
+  .ladder-pill--muted {
+    background: transparent;
+    color: var(--text-tertiary);
+    border: 1px solid var(--border-subtle);
+  }
+  .ladder-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .ladder-points li {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    padding: 0.25rem 0 0.25rem 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .ladder-points li::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    color: var(--dl-neon-green);
+    font-weight: 700;
+  }
+
+  /* ============ TAB 2: AI ADOPTION TABLE ============ */
+  .adoption-table {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .adoption-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 1fr 1.3fr;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    align-items: center;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: background 180ms ease;
+  }
+  .adoption-row:last-child { border-bottom: none; }
+  .adoption-row:hover:not(.adoption-row--head) { background: var(--bg-card-hover); }
+  .adoption-row--head {
+    background: var(--bg-elevated);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+  }
+  .adoption-stage {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  .adoption-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .adoption-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 4px;
+    overflow: hidden;
+    min-width: 0;
+  }
+  .adoption-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 600ms ease;
+  }
+  .adoption-val {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    min-width: 3rem;
+    text-align: right;
+  }
+  .adoption-val em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-tertiary);
+    font-size: 0.7rem;
+  }
+  .adoption-example {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  /* Tab 2: responsive — collapse ladder + adoption table */
+  @media (max-width: 880px) {
+    .ladder-rung { grid-template-columns: 1fr; }
+    .ladder-rung--2, .ladder-rung--3 { margin-left: 0; }
+    .adoption-row {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .adoption-row > :first-child { grid-column: 1 / -1; }
+    .adoption-example { grid-column: 1 / -1; }
+  }
+
+  /* ============ TAB 3: FIVE PILLARS ============ */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  .pillar-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.5rem 1.25rem;
+    cursor: pointer;
+    transition: border-color 220ms ease, background 220ms ease, transform 220ms ease;
+    position: relative;
+  }
+  .pillar-card:hover {
+    border-color: var(--dl-neon-green);
+    background: var(--bg-card-hover);
+  }
+  .pillar-card.expanded {
+    border-color: var(--dl-neon-green);
+    background: var(--bg-card-hover);
+  }
+  .pillar-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--dl-neon-green);
+    margin-bottom: 0.75rem;
+  }
+  .pillar-card h3 {
+    font-size: 1.0625rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  .pillar-summary {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .pillar-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 320ms ease, margin-top 320ms ease;
+  }
+  .pillar-card.expanded .pillar-detail {
+    max-height: 500px;
+    margin-top: 1rem;
+  }
+  .pillar-detail ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 0.85rem;
+  }
+  .pillar-detail li {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    padding: 0.35rem 0 0.35rem 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .pillar-detail li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--dl-neon-green);
+  }
+  .pillar-detail strong { color: var(--text-primary); font-weight: 600; }
+
+  /* ============ TAB 3: READINESS ASSESSMENT ============ */
+  .assessment {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  @media (min-width: 1000px) {
+    .assessment.has-results {
+      grid-template-columns: 1fr 460px;
+      align-items: start;
+    }
+  }
+  .assessment-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .q-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    transition: border-color 220ms ease;
+  }
+  .q-card.answered { border-left: 3px solid var(--dl-neon-green); }
+
+  .q-pillar {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dl-neon-green);
+    margin-bottom: 0.4rem;
+  }
+  .q-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+  .q-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+  @media (max-width: 720px) {
+    .q-options { grid-template-columns: 1fr 1fr; }
+  }
+  .q-option {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 0.75rem 0.65rem;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.8125rem;
+    line-height: 1.35;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+    position: relative;
+  }
+  .q-option:hover {
+    border-color: var(--dl-neon-green);
+    color: var(--text-primary);
+  }
+  .q-option.selected {
+    background: rgba(134, 235, 34, 0.12);
+    border-color: var(--dl-neon-green);
+    color: var(--text-primary);
+  }
+  .q-option .q-score {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--dl-neon-green);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Assessment results card */
+  .a-results {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.5rem;
+    position: sticky;
+    top: calc(var(--tab-bar-height) + 1rem);
+  }
+  .a-results-empty {
+    background: var(--bg-card);
+    border: 1px dashed var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.5rem;
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .a-results h4 {
+    font-size: 0.7rem;
+    color: var(--dl-neon-green);
+    margin-bottom: 1rem;
+  }
+  .radar-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+  .a-synthesis {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .a-synthesis strong { color: var(--dl-neon-green); font-weight: 700; }
+  .a-progress {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+  .a-progress-bar {
+    height: 4px;
+    background: var(--bg-elevated);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .a-progress-fill {
+    height: 100%;
+    background: var(--dl-neon-green);
+    transition: width 320ms ease;
+  }
+
+  /* ============ TAB 4: USE CASE ARCHETYPES ============ */
+  .archetype-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  @media (max-width: 900px) {
+    .archetype-columns { grid-template-columns: 1fr; }
+  }
+  .archetype-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .archetype-head {
+    padding: 1rem 1.25rem 1.25rem;
+    border-radius: 6px 6px 0 0;
+    border-top: 3px solid var(--dl-neon-green);
+    background: var(--bg-elevated);
+    margin-bottom: 0.25rem;
+  }
+  .archetype-col--insights .archetype-head { border-top-color: var(--dl-green); }
+  .archetype-col--knowledge .archetype-head { border-top-color: var(--dl-neon-green); }
+  .archetype-col--process .archetype-head { border-top-color: var(--dl-blue); }
+
+  .archetype-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.4rem;
+  }
+  .archetype-col--insights .archetype-tag { color: var(--dl-green); }
+  .archetype-col--knowledge .archetype-tag { color: var(--dl-neon-green); }
+  .archetype-col--process .archetype-tag { color: var(--dl-blue); }
+
+  .archetype-head p {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    color: var(--text-secondary);
+  }
+  .archetype-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 0.85rem 1rem;
+    transition: border-color 200ms ease;
+  }
+  .archetype-card:hover { border-color: var(--dl-neon-green); }
+  .archetype-card h4 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+  }
+  .archetype-card p {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* ============ TAB 4: EFFICIENCY MAP (full PDV page 11 layout) ============ */
+  .effmap-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0.85rem 1rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+  }
+  .effmap-legend-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-right: 0.25rem;
+  }
+  .effmap-chip {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    border: 1px solid transparent;
+  }
+  /* Band colors — multi-hue ramp for clear differentiation
+     Very Low → amber/gold (warns: low gain)
+     Low      → pale yellow-green
+     Medium   → mid green
+     High     → bright neon green (brand accent)
+     Very High → cool teal/cyan (brand gradient endpoint) */
+  .effmap-chip--vl, .effmap-tile--vl {
+    background: rgba(232, 163, 23, 0.15);
+    border-color: rgba(232, 163, 23, 0.55);
+    color: #f0c060;
+  }
+  .effmap-chip--l, .effmap-tile--l {
+    background: rgba(207, 226, 56, 0.15);
+    border-color: rgba(207, 226, 56, 0.55);
+    color: #d4e840;
+  }
+  .effmap-chip--m, .effmap-tile--m {
+    background: rgba(99, 198, 49, 0.22);
+    border-color: rgba(99, 198, 49, 0.7);
+    color: #8be03b;
+  }
+  .effmap-chip--h, .effmap-tile--h {
+    background: rgba(134, 235, 34, 0.28);
+    border-color: rgba(134, 235, 34, 0.85);
+    color: #b6ff5e;
+  }
+  .effmap-chip--vh, .effmap-tile--vh {
+    background: rgba(63, 195, 236, 0.25);
+    border-color: rgba(63, 195, 236, 0.85);
+    color: #6fd8f5;
+  }
+
+  .effmap-grid {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+  }
+  @media (max-width: 1100px) {
+    .effmap-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  @media (max-width: 720px) {
+    .effmap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  .effmap-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+  .effmap-fnhead {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 0.6rem 0.5rem;
+    text-align: center;
+    margin-bottom: 0.25rem;
+  }
+  .effmap-fnname {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.25;
+    margin-bottom: 0.25rem;
+  }
+  .effmap-fnavg {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--dl-neon-green);
+    line-height: 1;
+  }
+  .effmap-tile {
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.25;
+    padding: 0.55rem 0.5rem;
+    border-radius: 3px;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 180ms ease;
+  }
+  .effmap-tile:hover { transform: scale(1.02); }
+
+  /* ============ TAB 4: USE CASE PRIORITIZER ============ */
+  .prioritizer-counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .pc-count {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+  }
+  .pc-count strong { color: var(--text-primary); font-weight: 700; }
+  .pc-count.over { color: var(--status-amber); }
+  .pc-count.over strong { color: var(--status-amber); }
+  .pc-clear {
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    font-size: 0.8125rem;
+    cursor: pointer;
+    padding: 0.35rem 0.65rem;
+    border-radius: 3px;
+    font-family: inherit;
+    transition: color 180ms ease, background 180ms ease;
+  }
+  .pc-clear:hover { color: var(--text-primary); background: var(--bg-card-hover); }
+  .pc-clear:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .uc-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .uc-filter {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .uc-filter:hover { color: var(--text-primary); border-color: var(--text-tertiary); }
+  .uc-filter.active {
+    background: var(--dl-neon-green);
+    color: var(--text-on-green);
+    border-color: var(--dl-neon-green);
+  }
+  .uc-filter-count {
+    font-size: 0.65rem;
+    background: rgba(0,0,0,0.18);
+    padding: 0.1rem 0.4rem;
+    border-radius: 999px;
+    font-weight: 700;
+  }
+  .uc-filter:not(.active) .uc-filter-count {
+    background: var(--bg-card);
+    color: var(--text-tertiary);
+  }
+
+  .uc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  @media (min-width: 1100px) {
+    .uc-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .uc-section {
+    margin-bottom: 1.5rem;
+  }
+  .uc-section:last-child { margin-bottom: 2.5rem; }
+  .uc-section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0 0.75rem;
+    margin-bottom: 0.65rem;
+    border-bottom: 1px solid var(--border-subtle);
+    flex-wrap: wrap;
+  }
+  .uc-section-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+  .uc-section-meta {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .uc-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 0.7rem 0.85rem 0.65rem;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+  }
+  .uc-card:hover {
+    border-color: var(--text-tertiary);
+    background: var(--bg-card-hover);
+  }
+  .uc-card.selected {
+    border-color: var(--dl-neon-green);
+    background: rgba(134, 235, 34, 0.08);
+  }
+  .uc-card.selected::after {
+    content: "✓";
+    position: absolute;
+    top: 0.5rem;
+    right: 0.6rem;
+    color: var(--dl-neon-green);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .uc-cat {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+    padding-right: 4.5rem;
+  }
+  .uc-cat--insights { color: var(--dl-green); }
+  .uc-cat--knowledge { color: var(--dl-neon-green); }
+  .uc-cat--process { color: var(--dl-blue); }
+  .uc-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+    padding-right: 4.5rem;
+    margin-bottom: 0.3rem;
+  }
+  .uc-meta {
+    font-size: 0.68rem;
+    color: var(--text-tertiary);
+    font-weight: 500;
+  }
+  .uc-maturity {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.6rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.18rem 0.45rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+  }
+  .uc-card.selected .uc-maturity {
+    top: 0.5rem;
+    right: 1.8rem; /* clear the checkmark */
+  }
+  .uc-maturity--live {
+    color: var(--dl-neon-green);
+    background: rgba(134, 235, 34, 0.15);
+    border-color: rgba(134, 235, 34, 0.4);
+  }
+  .uc-maturity--inflight {
+    color: var(--dl-blue);
+    background: rgba(0, 163, 224, 0.15);
+    border-color: rgba(0, 163, 224, 0.4);
+  }
+  .uc-maturity--emerging {
+    color: var(--text-tertiary);
+    background: rgba(255,255,255,0.04);
+    border-color: var(--border-subtle);
+  }
+
+  /* Inline maturity badge — used in matrix legend and synthesis */
+  .meta-maturity {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    margin-left: 0.15rem;
+  }
+  .meta-maturity--live {
+    color: var(--dl-neon-green);
+    background: rgba(134, 235, 34, 0.15);
+  }
+  .meta-maturity--inflight {
+    color: var(--dl-blue);
+    background: rgba(0, 163, 224, 0.15);
+  }
+  .meta-maturity--emerging {
+    color: var(--text-tertiary);
+    background: rgba(255,255,255,0.05);
+  }
+
+  /* ============ TAB 4: ASSET LIBRARY CALLOUT ============ */
+  .asset-library {
+    margin-top: 2.5rem;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--bg-card), rgba(0, 163, 224, 0.05));
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+  }
+  .asset-library-head {
+    max-width: 820px;
+    margin-bottom: 1.5rem;
+  }
+  .asset-library-head h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 0.5rem 0 0.75rem;
+    letter-spacing: -0.01em;
+  }
+  .asset-library-head p {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .asset-library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.5rem;
+  }
+  .asset-tile {
+    background: var(--bg-base);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 0.75rem 0.85rem;
+    transition: border-color 200ms ease, transform 180ms ease;
+  }
+  .asset-tile:hover {
+    border-color: var(--dl-blue);
+    transform: translateY(-1px);
+  }
+  .asset-tile-cat {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--dl-blue);
+    margin-bottom: 0.3rem;
+  }
+  .asset-tile-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.25;
+  }
+
+  /* Matrix */
+  .matrix-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.5rem;
+  }
+  .matrix-empty {
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  .matrix-grid {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .matrix-grid { grid-template-columns: 1fr; }
+  }
+  .matrix-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .matrix-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .matrix-legend h4 {
+    font-size: 0.7rem;
+    color: var(--dl-neon-green);
+    margin-bottom: 0.25rem;
+  }
+  .matrix-legend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+  .matrix-legend-dot {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 50%;
+    background: var(--dl-neon-green);
+    color: var(--text-on-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+  .matrix-legend-dot.in-start { box-shadow: 0 0 0 3px rgba(134, 235, 34, 0.35); }
+  .matrix-legend-name {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+  .matrix-legend-meta {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-top: 0.15rem;
+  }
+  .start-here-callout {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .start-here-callout h4 {
+    color: var(--dl-neon-green);
+    margin-bottom: 0.5rem;
+  }
+  .start-here-callout p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ============ TAB 5: INVESTMENT STAGES ============ */
+  .invest-stages {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  .invest-stage {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    display: grid;
+    grid-template-columns: 220px 1fr 200px;
+    gap: 1.5rem;
+    align-items: start;
+    position: relative;
+    transition: transform 200ms ease, border-color 200ms ease;
+  }
+  .invest-stage:hover {
+    transform: translateX(4px);
+    border-color: var(--dl-neon-green);
+  }
+  /* Staircase indent — each stage is offset further right */
+  .invest-stage[data-stage="1"] { margin-left: 0; }
+  .invest-stage[data-stage="2"] { margin-left: 1.25rem; }
+  .invest-stage[data-stage="3"] { margin-left: 2.5rem; }
+  .invest-stage[data-stage="4"] { margin-left: 3.75rem; }
+  .invest-stage[data-stage="5"] { margin-left: 5rem; }
+  .invest-stage--peak {
+    background: linear-gradient(135deg, var(--bg-card), rgba(134, 235, 34, 0.08));
+    border-color: rgba(134, 235, 34, 0.4);
+  }
+
+  .invest-step {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--dl-neon-green);
+    margin-bottom: 0.5rem;
+  }
+  .invest-stage h3 {
+    font-size: 1.0625rem;
+    margin-bottom: 0;
+    line-height: 1.25;
+  }
+  .invest-summary {
+    grid-column: 2;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0 0 0.85rem;
+  }
+  .invest-list {
+    grid-column: 2;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .invest-list li {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    padding: 0.25rem 0 0.25rem 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .invest-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--dl-neon-green);
+    font-weight: 700;
+  }
+  .invest-value {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dl-neon-green);
+    text-align: right;
+    border-left: 1px solid var(--border-subtle);
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    line-height: 1.4;
+  }
+  .invest-stage > .invest-step { grid-column: 1; }
+  .invest-stage > h3 { grid-column: 1; }
+
+  @media (max-width: 880px) {
+    .invest-stage {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    .invest-stage[data-stage="1"],
+    .invest-stage[data-stage="2"],
+    .invest-stage[data-stage="3"],
+    .invest-stage[data-stage="4"],
+    .invest-stage[data-stage="5"] { margin-left: 0; }
+    .invest-summary, .invest-list { grid-column: 1; }
+    .invest-value {
+      grid-column: 1;
+      border-left: none;
+      border-top: 1px solid var(--border-subtle);
+      padding-left: 0;
+      padding-top: 0.75rem;
+      margin-top: 0.5rem;
+      text-align: left;
+    }
+  }
+
+  /* ============ TAB 5: VALUE KPIs ============ */
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .value-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.5rem 1.25rem;
+    border-top: 3px solid var(--dl-neon-green);
+    transition: transform 220ms ease, border-color 220ms ease;
+  }
+  .value-card:hover { transform: translateY(-2px); }
+  .value-card--financial   { border-top-color: var(--dl-green); }
+  .value-card--operational { border-top-color: var(--dl-neon-green); }
+  .value-card--strategic   { border-top-color: var(--dl-blue); }
+  .value-card--employee    { border-top-color: #b6ff5e; }
+
+  .value-icon {
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: var(--dl-neon-green);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(134, 235, 34, 0.1);
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.25rem;
+  }
+  .value-card--financial   .value-icon { color: var(--dl-green); background: rgba(134, 188, 37, 0.12); }
+  .value-card--operational .value-icon { color: var(--dl-neon-green); background: rgba(134, 235, 34, 0.12); }
+  .value-card--strategic   .value-icon { color: var(--dl-blue); background: rgba(0, 163, 224, 0.12); }
+  .value-card--employee    .value-icon { color: #b6ff5e; background: rgba(182, 255, 94, 0.10); }
+
+  .value-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.4rem;
+  }
+  .value-card--financial   .value-tag { color: var(--dl-green); }
+  .value-card--operational .value-tag { color: var(--dl-neon-green); }
+  .value-card--strategic   .value-tag { color: var(--dl-blue); }
+  .value-card--employee    .value-tag { color: #b6ff5e; }
+
+  .value-card h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  .value-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 0.85rem;
+  }
+  .value-card li {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    padding: 0.3rem 0 0.3rem 1rem;
+    position: relative;
+    line-height: 1.45;
+  }
+  .value-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--dl-neon-green);
+  }
+
+  /* ============ TAB 6: THREE PATHWAYS ============ */
+  .paths-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .path-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.75rem 1.5rem;
+    border-top: 3px solid var(--dl-neon-green);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 220ms ease, border-color 220ms ease;
+  }
+  .path-card:hover { transform: translateY(-3px); }
+  .path-card--tech   { border-top-color: var(--dl-green); }
+  .path-card--collab { border-top-color: var(--dl-neon-green); }
+  .path-card--innov  { border-top-color: var(--dl-blue); }
+
+  .path-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--dl-neon-green);
+  }
+  .path-card--tech   .path-tag { color: var(--dl-green); }
+  .path-card--collab .path-tag { color: var(--dl-neon-green); }
+  .path-card--innov  .path-tag { color: var(--dl-blue); }
+
+  .path-card h3 {
+    font-size: 1.25rem;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .path-summary {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .path-section {
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 0.85rem;
+  }
+  .path-section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+    margin-bottom: 0.5rem;
+  }
+  .path-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .path-section li {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    padding: 0.25rem 0 0.25rem 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .path-section li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--dl-neon-green);
+  }
+  .path-card--tech   .path-section li::before { background: var(--dl-green); }
+  .path-card--collab .path-section li::before { background: var(--dl-neon-green); }
+  .path-card--innov  .path-section li::before { background: var(--dl-blue); }
+
+  /* ============ TAB 6: SYNTHESIS ============ */
+  .synthesis {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .syn-panels-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  @media (max-width: 980px) {
+    .syn-panels-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Focus band */
+  .syn-focus {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+  }
+  .syn-focus--empty {
+    border-style: dashed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .syn-focus-head { margin-bottom: 1.25rem; }
+  .syn-focus-head h3 { margin: 0.25rem 0 0; }
+
+  /* Full role tiles in ranked order */
+  .syn-focus-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .syn-focus-tile {
+    position: relative;
+    background: var(--bg-base);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.5rem 1.25rem 1.25rem;
+    border-top-width: 3px;
+  }
+  .syn-focus-tile--finance    { border-top-color: var(--dl-green); }
+  .syn-focus-tile--enterprise { border-top-color: var(--dl-neon-green); }
+  .syn-focus-tile--market     { border-top-color: var(--dl-blue); }
+
+  /* Rank badge in the top-right of each tile */
+  .syn-focus-tile-rank {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    border: 1px solid var(--border-subtle);
+  }
+  .syn-focus-tile--rank1 .syn-focus-tile-rank {
+    background: var(--dl-neon-green);
+    color: var(--text-on-green);
+    border-color: var(--dl-neon-green);
+    box-shadow: 0 0 0 4px rgba(134, 235, 34, 0.18);
+  }
+  .syn-focus-tile--rank2 .syn-focus-tile-rank {
+    background: var(--dl-blue);
+    color: #fff;
+    border-color: var(--dl-blue);
+    box-shadow: 0 0 0 4px rgba(0, 163, 224, 0.18);
+  }
+  .syn-focus-tile--rank3 .syn-focus-tile-rank {
+    background: var(--bg-elevated);
+    color: var(--text-secondary);
+    border-color: var(--text-tertiary);
+  }
+
+  /* Inner rank-driven inset border (matches Tab 2 emphasis) */
+  .syn-focus-tile--rank1 { box-shadow: inset 0 0 0 1px rgba(134, 235, 34, 0.5); }
+  .syn-focus-tile--rank2 { box-shadow: inset 0 0 0 1px rgba(0, 163, 224, 0.5); }
+
+  /* Tag pill */
+  .syn-focus-tile-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.35rem 0.7rem;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+  }
+  .syn-focus-tile--finance    .syn-focus-tile-tag { background: rgba(134, 188, 37, 0.15); color: var(--dl-green); }
+  .syn-focus-tile--enterprise .syn-focus-tile-tag { background: rgba(134, 235, 34, 0.15); color: var(--dl-neon-green); }
+  .syn-focus-tile--market     .syn-focus-tile-tag { background: rgba(0, 163, 224, 0.15); color: var(--dl-blue); }
+
+  .syn-focus-tile h4 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 3rem 0.65rem 0; /* room for rank badge */
+    text-transform: none;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+  }
+  .syn-focus-tile p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0 0 1.25rem;
+  }
+  .syn-focus-tile ul {
+    list-style: none;
+    padding: 1rem 0 0;
+    margin: 0;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .syn-focus-tile li {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    padding: 0.35rem 0 0.35rem 1.1rem;
+    position: relative;
+    line-height: 1.4;
+  }
+  .syn-focus-tile li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+  }
+  .syn-focus-tile--finance    li::before { background: var(--dl-green); }
+  .syn-focus-tile--enterprise li::before { background: var(--dl-neon-green); }
+  .syn-focus-tile--market     li::before { background: var(--dl-blue); }
+  .syn-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 1.5rem;
+  }
+  .syn-panel h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  .syn-panel .eyebrow { margin-bottom: 0.25rem; }
+  .syn-empty {
+    border: 1px dashed var(--border-subtle);
+    background: transparent;
+    color: var(--text-tertiary);
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+  }
+  .syn-empty p { margin-bottom: 1rem; }
+  .syn-jump {
+    background: transparent;
+    border: 1px solid var(--text-tertiary);
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.55rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: color 180ms ease, border-color 180ms ease;
+  }
+  .syn-jump:hover { color: var(--text-primary); border-color: var(--dl-neon-green); }
+
+  .syn-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+  }
+  .syn-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.875rem;
+  }
+  .syn-list li:last-child { border-bottom: none; }
+  .syn-num {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 50%;
+    background: var(--dl-neon-green);
+    color: var(--text-on-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+  .syn-num.dim {
+    background: var(--bg-elevated);
+    color: var(--text-tertiary);
+  }
+  .syn-name {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+  .syn-meta {
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
+    margin-top: 0.15rem;
+  }
+  .syn-tag {
+    margin-left: auto;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.55rem;
+    border-radius: 3px;
+    color: var(--dl-neon-green);
+    background: rgba(134, 235, 34, 0.15);
+    white-space: nowrap;
+  }
+  .syn-tag.muted { color: var(--text-tertiary); background: var(--bg-elevated); }
+
+  .syn-readouts-list {
+    margin-top: 0.5rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .syn-pillar-readout {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.875rem;
+  }
+  .syn-pillar-readout:last-child { border-bottom: none; }
+  .syn-pillar-name { color: var(--text-primary); font-weight: 600; }
+  .syn-pillar-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 0.15rem;
+    line-height: 1.35;
+  }
+  .syn-pillar-score {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--dl-neon-green);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: rgba(134, 235, 34, 0.12);
+    padding: 0.3rem 0.55rem;
+    border-radius: 3px;
+    border: 1px solid rgba(134, 235, 34, 0.3);
+    white-space: nowrap;
+  }
+
+  /* ============ PRINT SUMMARY (hidden on screen, visible on print) ============ */
+  #printSummary {
+    display: none;
+  }
+
+  /* On-screen print preview overlay — visible when body has .print-preview-open */
+  body.print-preview-open {
+    overflow: hidden;
+  }
+  body.print-preview-open #printSummary {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: #ffffff;
+    z-index: 1000;
+    overflow-y: auto;
+    color: #222;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+  }
+  .psum-controls {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0.85rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .psum-btn {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.6rem 1.15rem;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background 180ms ease, transform 120ms ease;
+  }
+  .psum-btn--primary {
+    background: #86BC25;
+    color: #fff;
+    border-color: #86BC25;
+  }
+  .psum-btn--primary:hover {
+    background: #75a521;
+    transform: translateY(-1px);
+  }
+  .psum-btn--secondary {
+    background: transparent;
+    color: #444;
+    border-color: #999;
+  }
+  .psum-btn--secondary:hover {
+    background: #f5f5f5;
+    color: #000;
+  }
+  /* Paper container: same dimensions as the printed page, no card-like decoration */
+  .psum-paper {
+    background: #fff;
+    max-width: 7.5in;
+    margin: 0 auto;
+    padding: 0.5in 0.55in;
+  }
+
+  /* ============ PRINT STYLES ============ */
+  /* ====== PRINT SUMMARY CONTENT STYLING ======
+     These apply in BOTH the on-screen preview overlay AND the printed page,
+     so the preview is a true WYSIWYG match for the print output. */
+  .psum-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #86BC25;
+    margin-bottom: 0.85rem;
+  }
+  .psum-brand { font-size: 1.25rem; font-weight: 700; color: #000; line-height: 1; }
+  .psum-tagline { font-size: 0.7rem; font-style: italic; color: #666; margin-top: 0.25rem; }
+  .psum-date { font-size: 0.75rem; color: #666; text-transform: uppercase; letter-spacing: 0.1em; }
+
+  .psum-title { font-size: 1.4rem; font-weight: 300; color: #000; margin: 0 0 0.35rem; letter-spacing: -0.02em; }
+  .psum-title em { font-style: italic; color: #86BC25; font-weight: 700; }
+  .psum-prepared, .psum-discussed, .psum-line { display: none; }
+
+  .psum-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .psum-focus {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.65rem 0.8rem;
+    background: #fafafa;
+    margin-bottom: 0.75rem;
+    page-break-inside: avoid;
+  }
+  .psum-focus-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .psum-focus-tile {
+    padding: 0.55rem 0.65rem;
+    border-radius: 3px;
+    background: #fff;
+    border-left: 3px solid #ddd;
+    border-top: 2px solid #ddd;
+  }
+  .psum-focus-tile-head { display: flex; align-items: center; gap: 0.45rem; margin-bottom: 0.25rem; }
+  .psum-focus-rank {
+    width: 22px; height: 22px; min-width: 22px;
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 0.62rem; font-weight: 700;
+    background: #eee; color: #444;
+  }
+  .psum-focus-rank-1 { border-left-color: #86BC25; }
+  .psum-focus-rank-1 .psum-focus-rank { background: #86BC25; color: #fff; }
+  .psum-focus-rank-2 { border-left-color: #00A3E0; }
+  .psum-focus-rank-2 .psum-focus-rank { background: #00A3E0; color: #fff; }
+  .psum-focus-rank-3 { border-left-color: #999; }
+  .psum-focus-tile--finance    { border-top-color: #86BC25; }
+  .psum-focus-tile--enterprise { border-top-color: #86EB22; }
+  .psum-focus-tile--market     { border-top-color: #00A3E0; }
+  .psum-focus-name { font-weight: 700; color: #000; font-size: 0.72rem; line-height: 1.2; }
+  .psum-focus-desc { font-size: 0.65rem; color: #555; font-style: italic; line-height: 1.3; margin-bottom: 0.4rem; }
+  .psum-focus-bullets { list-style: none; padding: 0.3rem 0 0; margin: 0; border-top: 1px dotted #ddd; }
+  .psum-focus-bullets li { font-size: 0.62rem; color: #444; padding: 0.12rem 0 0.12rem 0.6rem; position: relative; line-height: 1.35; }
+  .psum-focus-bullets li::before { content: ""; position: absolute; left: 0; top: 0.45rem; width: 3px; height: 3px; border-radius: 50%; background: #86BC25; }
+
+  .psum-block {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.65rem 0.8rem;
+    background: #fafafa;
+    page-break-inside: avoid;
+  }
+  .psum-block-label { font-size: 0.7rem; font-weight: 700; color: #86BC25; text-transform: uppercase; letter-spacing: 0.12em; }
+  .psum-block-sub { font-size: 0.7rem; color: #666; margin-bottom: 0.4rem; }
+  .psum-empty { padding: 1.5rem 0; text-align: center; color: #999; font-size: 0.75rem; font-style: italic; }
+  .psum-svg { width: 100%; height: auto; display: block; margin: 0.35rem 0; }
+  .psum-readouts { margin-top: 0.5rem; padding-top: 0.4rem; border-top: 1px solid #ddd; }
+  .psum-pillar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2rem 0;
+    font-size: 0.7rem;
+    border-bottom: 1px dotted #ddd;
+  }
+  .psum-pillar:last-child { border-bottom: none; }
+  .psum-pillar-name { font-weight: 700; color: #000; }
+  .psum-pillar-label { font-style: italic; color: #555; font-size: 0.68rem; }
+  .psum-pillar-lvl { font-weight: 700; color: #86BC25; font-size: 0.65rem; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+
+  .psum-uclist {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.65rem 0.8rem;
+    background: #fafafa;
+    page-break-inside: avoid;
+    margin-bottom: 0.75rem;
+  }
+  .psum-uclist ol { list-style: none; padding: 0; margin: 0.4rem 0 0; }
+  .psum-uclist li {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    grid-template-rows: auto auto;
+    gap: 0 0.5rem;
+    padding: 0.2rem 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.72rem;
+  }
+  .psum-uclist li:last-child { border-bottom: none; }
+  .psum-ucnum {
+    grid-row: 1 / 3; grid-column: 1;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: #86BC25; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem; font-weight: 700;
+  }
+  .psum-ucname { grid-row: 1; grid-column: 2; font-weight: 700; color: #000; }
+  .psum-ucmeta { grid-row: 2; grid-column: 2; font-size: 0.65rem; color: #666; }
+
+  .psum-footer {
+    border-top: 1px solid #ddd;
+    padding-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.7rem;
+    color: #666;
+    gap: 1rem;
+  }
+  .psum-source { font-style: italic; }
+
+  /* ============ PRINT-ONLY OVERRIDES ============ */
+  @media print {
+    @page { size: letter portrait; margin: 0.5in; }
+
+    body, body.print-preview-open {
+      background: #ffffff !important;
+      color: #222222 !important;
+      font-family: 'Open Sans', sans-serif;
+      overflow: visible !important;
+    }
+    body::before, body::after { display: none !important; }
+
+    /* Hide all screen UI */
+    .app-header, .tab-bar, .panel, .panel-footer, nav, button,
+    .psum-controls, .app-footer, [data-no-print] {
+      display: none !important;
+    }
+
+    /* Collapse the fixed overlay into normal page flow */
+    #printSummary,
+    body.print-preview-open #printSummary {
+      display: block !important;
+      position: static !important;
+      inset: auto !important;
+      background: #fff !important;
+      padding: 0 !important;
+      max-width: none !important;
+      overflow: visible !important;
+      color: #222222 !important;
+      z-index: auto !important;
+    }
+    .psum-paper {
+      padding: 0 !important;
+      max-width: none !important;
+      margin: 0 !important;
+      background: #fff !important;
+    }
+
+    /* Force background colors to print */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <div class="brand">
+      <div>
+        <div class="brand-name">Deloitte<span style="color: var(--dl-neon-green);">.</span></div>
+        <div class="brand-tagline">Together makes progress</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="meta-label">Point of View</div>
+      <div class="meta-value">AI-Enabled Future of Finance</div>
+    </div>
+  </header>
+
+  <!-- TAB BAR -->
+  <nav class="tab-bar" role="tablist" id="tabBar">
+    <button class="tab active" role="tab" data-tab="0"><span class="tab-num">1</span>The Forces</button>
+    <button class="tab" role="tab" data-tab="1"><span class="tab-num">2</span>The Future</button>
+    <button class="tab" role="tab" data-tab="2"><span class="tab-num">3</span>What Needs to be True</button>
+    <button class="tab" role="tab" data-tab="3"><span class="tab-num">4</span>Where to Start</button>
+    <button class="tab" role="tab" data-tab="4"><span class="tab-num">5</span>How to Invest</button>
+    <button class="tab" role="tab" data-tab="5"><span class="tab-num">6</span>Your Path Forward</button>
+  </nav>
+
+  <!-- PANELS — placeholders, content built step-by-step -->
+  <main id="panels">
+
+    <section class="panel active" data-panel="0">
+      <div class="panel-header">
+        <span class="eyebrow">Setting the Stage</span>
+        <h1>Five forces shaping the <span class="accent-word">market</span></h1>
+        <p class="deck">Industry and macro forces are shifting Finance priorities and challenging traditional paradigms. The Finance function must push beyond efficiency, beyond business partnering, into new heights — by leveraging technology, elevating talent, and evolving the role itself.</p>
+      </div>
+
+      <!-- FIVE FORCES GRID -->
+      <div class="forces-grid">
+        <a class="force-card" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">
+          <div class="force-num">01<span class="ext-icon" aria-hidden="true">↗</span></div>
+          <h3>Volatile Markets</h3>
+          <p>Rapid market movement from economic conditions and Black Swan events requires resilience.</p>
+        </a>
+        <a class="force-card" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">
+          <div class="force-num">02<span class="ext-icon" aria-hidden="true">↗</span></div>
+          <h3>Exponential Technology Change</h3>
+          <p>Advanced ERPs and artificial intelligence are rapidly changing the way we work.</p>
+        </a>
+        <a class="force-card" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">
+          <div class="force-num">03<span class="ext-icon" aria-hidden="true">↗</span></div>
+          <h3>Evolving Expectations</h3>
+          <p>Finance is no longer a back-office function. It must create more value for the business.</p>
+        </a>
+        <a class="force-card" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">
+          <div class="force-num">04<span class="ext-icon" aria-hidden="true">↗</span></div>
+          <h3>Changing Industry Dynamics</h3>
+          <p>Ongoing shifts and transformations across market, technology, and regulation require strategic flexibility.</p>
+        </a>
+        <a class="force-card" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">
+          <div class="force-num">05<span class="ext-icon" aria-hidden="true">↗</span></div>
+          <h3>Shifting Workforce</h3>
+          <p>Access to agile capital, adequate planning, and deployment of talent are essential to the journey.</p>
+        </a>
+      </div>
+
+      <!-- DIVIDER + INTRO -->
+      <div class="section-divider">
+        <span class="eyebrow">Role of Finance</span>
+        <h2>Driving value amidst <span class="accent-word">disruption</span></h2>
+        <p style="max-width: 820px;">87% of CFOs believe AI will be extremely or very important to their departments in 2026. Five shifts are already underway:</p>
+      </div>
+
+      <!-- ROLE OF FINANCE — 5 STAT BLOCKS -->
+      <div class="stats-grid">
+        <a class="stat-block" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">
+          <div class="stat-label">Anticipating rather than reacting<span class="ext-icon" aria-hidden="true">↗</span></div>
+          <div class="stat-row"><span class="stat-num">63%</span><span class="stat-text">now tackle uncertainty with new tools</span></div>
+          <div class="stat-row"><span class="stat-num">30%</span><span class="stat-text">use advanced scenario planning</span></div>
+          <div class="stat-row"><span class="stat-num">23%</span><span class="stat-text">employ more agile governance</span></div>
+        </a>
+        <a class="stat-block" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">
+          <div class="stat-label">Putting Finance in the driver's seat<span class="ext-icon" aria-hidden="true">↗</span></div>
+          <div class="stat-row"><span class="stat-num">57%</span><span class="stat-text">of Finance leaders now influence enterprise strategy</span></div>
+          <div class="stat-row"><span class="stat-num">20%</span><span class="stat-text">responsibility uptick required to drive growth</span></div>
+        </a>
+        <a class="stat-block" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">
+          <div class="stat-label">Owning costs to own results<span class="ext-icon" aria-hidden="true">↗</span></div>
+          <div class="stat-row"><span class="stat-num">21%</span><span class="stat-text">more likely to meet goals when Finance directly owns cost management</span></div>
+        </a>
+        <a class="stat-block" href="https://www.deloitte.com/us/en/about/press-room/deloitte-q4-2025-cfo-signals-survey.html" target="_blank" rel="noopener">
+          <div class="stat-label">Turning experiments into ROI<span class="ext-icon" aria-hidden="true">↗</span></div>
+          <div class="stat-row"><span class="stat-num">100%</span><span class="stat-text">of Finance functions are experimenting with agentic automation</span></div>
+          <div class="stat-row"><span class="stat-num">63%</span><span class="stat-text">have deployed AI/automation but haven't reaped full benefits</span></div>
+        </a>
+        <a class="stat-block" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">
+          <div class="stat-label">Shifting to tech-forward talent<span class="ext-icon" aria-hidden="true">↗</span></div>
+          <div class="stat-row"><span class="stat-num">64%</span><span class="stat-text">are adding AI and data skills by 2026 in response to talent gaps</span></div>
+        </a>
+      </div>
+
+      <p class="source-line">Sources: <a class="inline-source" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">Deloitte Finance Trends Survey 2026</a> &middot; <a class="inline-source" href="https://www.deloitte.com/us/en/about/press-room/deloitte-q4-2025-cfo-signals-survey.html" target="_blank" rel="noopener">Deloitte Q4 2025 CFO Signals Spotlight</a></p>
+
+      <div class="panel-footer">
+        <span></span>
+        <button class="btn btn-primary" data-next>Next: The Future &rarr;</button>
+      </div>
+    </section>
+
+    <section class="panel" data-panel="1">
+      <div class="panel-header">
+        <span class="eyebrow">Setting the Stage</span>
+        <h1>An AI-enabled <span class="accent-word">future</span> of Finance</h1>
+        <p class="deck">Three roles of the Finance function will emerge in support of AI-enabled transformation. The core responsibilities don't change — but where Finance creates value does.</p>
+      </div>
+
+      <!-- THREE FINANCE ROLES (selectable: click to cycle through Primary → Secondary → Tertiary → off) -->
+      <div class="roles-grid" id="rolesGrid">
+        <button class="role-card role-card--finance" data-role="finance" type="button">
+          <div class="role-rank-badge" aria-hidden="true"></div>
+          <div class="role-tag">Finance for Finance</div>
+          <h3>Optimize traditional operations</h3>
+          <p>Leverage technology and data to deliver scalable, agile, cost-effective services from the right locations to maximize efficiency.</p>
+          <ul class="role-constants">
+            <li>Manage compliance and risk</li>
+            <li>Process receivables and payables</li>
+            <li>Deliver reliable financial statements</li>
+          </ul>
+        </button>
+        <button class="role-card role-card--enterprise" data-role="enterprise" type="button">
+          <div class="role-rank-badge" aria-hidden="true"></div>
+          <div class="role-tag">Finance for the Enterprise</div>
+          <h3>Strategic business partner &amp; adviser</h3>
+          <p>Provide timely insights and decision support, manage risk, uncover new business opportunities, drive efficient capital allocation.</p>
+          <ul class="role-constants">
+            <li>Track performance &amp; identify improvement</li>
+            <li>Data-driven planning &amp; forecasting</li>
+            <li>Identify risks &amp; opportunities for M&amp;A</li>
+          </ul>
+        </button>
+        <button class="role-card role-card--market" data-role="market" type="button">
+          <div class="role-rank-badge" aria-hidden="true"></div>
+          <div class="role-tag">Finance for the Market</div>
+          <h3>Storyteller to the investor community</h3>
+          <p>Build trust, enhance value, and boost consumer confidence through clear and reliable communications that improve stakeholder sentiment.</p>
+          <ul class="role-constants">
+            <li>Build trust through clear communication</li>
+            <li>Translate strategy into value drivers</li>
+            <li>Benchmark peer KPIs &amp; disclosures</li>
+          </ul>
+        </button>
+      </div>
+
+      <!-- Tap-to-rank prompt -->
+      <div class="roles-prompt" id="rolesPrompt">
+        <span class="roles-prompt-icon">↑</span>
+        <span><strong>Tap to rank.</strong> Your first click marks <span class="roles-prompt-1">1st</span> priority, the next is <span class="roles-prompt-2">2nd</span>, then <span class="roles-prompt-3">3rd</span>. Click a ranked card to unrank it.</span>
+      </div>
+
+      <div class="callout-bar">
+        Finance will be expected to deliver today's work and tomorrow's demands, <span class="accent-word">without added resources</span>. AI is the lever that makes it possible.
+      </div>
+
+      <!-- NEXT-GEN FINANCE TECHNOLOGY -->
+      <div class="section-divider">
+        <span class="eyebrow">Next-Gen Finance Technology</span>
+        <h2>More than Cloud ERP &amp; <span class="accent-word">EPM</span></h2>
+        <p style="max-width: 820px;">A maturity ladder from extended SaaS platforms through ML to fully Generative AI-enabled Finance.</p>
+      </div>
+
+      <div class="ladder">
+        <div class="ladder-rung ladder-rung--3">
+          <div class="ladder-label">
+            <span class="ladder-num">03</span>
+            <span class="ladder-stage">Generative AI Enabled</span>
+            <span class="ladder-pill">Most mature</span>
+          </div>
+          <ul class="ladder-points">
+            <li>Machine Learning &amp; Generative AI used together in an integrated stack</li>
+            <li>Finance team augmented by automated commentary and AI-generated insights</li>
+            <li>Pivot from hindsight (what happened) to foresight (predict and act)</li>
+          </ul>
+        </div>
+        <div class="ladder-rung ladder-rung--2">
+          <div class="ladder-label">
+            <span class="ladder-num">02</span>
+            <span class="ladder-stage">Machine Learning Enabled</span>
+          </div>
+          <ul class="ladder-points">
+            <li>Statistical driver trees using internal &amp; external drivers</li>
+            <li>Algorithmic forecasting using ML models; predictive scenario modeling</li>
+            <li>Nimble forecast process where refreshes are largely automated</li>
+          </ul>
+        </div>
+        <div class="ladder-rung ladder-rung--1">
+          <div class="ladder-label">
+            <span class="ladder-num">01</span>
+            <span class="ladder-stage">ERP / Package+ Enabled</span>
+            <span class="ladder-pill ladder-pill--muted">Foundation</span>
+          </div>
+          <ul class="ladder-points">
+            <li>Extended SaaS platforms (EPM, OTM, etc.)</li>
+            <li>Integrated data analytics platform with source data in one place</li>
+            <li>Single storefront for Finance to access multiple systems (SSO)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AI ADOPTION CURVE -->
+      <div class="section-divider">
+        <span class="eyebrow">AI Adoption Curve</span>
+        <h2>Adoption is narrow today &mdash; and growing <span class="accent-word">fast</span></h2>
+        <p style="max-width: 820px;">User productivity tools are widely adopted but can't automate an entire process. Agents and digital workers have the highest potential value but remain at MVP stage.</p>
+      </div>
+
+      <div class="adoption-table">
+        <div class="adoption-row adoption-row--head">
+          <div>AI Maturity</div>
+          <div class="adoption-cell">Adoption</div>
+          <div class="adoption-cell">Value Potential</div>
+          <div class="adoption-example">Example</div>
+        </div>
+        <div class="adoption-row">
+          <div class="adoption-stage">User Productivity Tools</div>
+          <div class="adoption-cell">
+            <div class="adoption-bar"><div class="adoption-bar-fill" style="width: 90%; background: var(--dl-neon-green);"></div></div>
+            <span class="adoption-val">+90%</span>
+          </div>
+          <div class="adoption-cell">
+            <div class="adoption-bar"><div class="adoption-bar-fill" style="width: 10%; background: var(--text-tertiary);"></div></div>
+            <span class="adoption-val">10%</span>
+          </div>
+          <div class="adoption-example">Enterprise GPT &middot; Microsoft Copilot</div>
+        </div>
+        <div class="adoption-row">
+          <div class="adoption-stage">Predictive AI Deployments</div>
+          <div class="adoption-cell">
+            <div class="adoption-bar"><div class="adoption-bar-fill" style="width: 20%; background: var(--dl-neon-green);"></div></div>
+            <span class="adoption-val">20% <em>in pockets</em></span>
+          </div>
+          <div class="adoption-cell">
+            <div class="adoption-bar"><div class="adoption-bar-fill" style="width: 30%; background: var(--text-tertiary);"></div></div>
+            <span class="adoption-val">30%</span>
+          </div>
+          <div class="adoption-example">PrecisionView: Demand Forecasting</div>
+        </div>
+        <div class="adoption-row">
+          <div class="adoption-stage">Generative AI Use Cases</div>
+          <div class="adoption-cell">
+            <div class="adoption-bar"><div class="adoption-bar-fill" style="width: 15%; background: var(--dl-neon-green);"></div></div>
+            <span class="adoption-val">&mdash;</span>
+          </div>
+          <div class="adoption-cell">
+            <div class="adoption-bar"><div class="adoption-bar-fill" style="width: 60%; background: var(--text-tertiary);"></div></div>
+            <span class="adoption-val">60%</span>
+          </div>
+          <div class="adoption-example">IR Copilot: Narrative Creation</div>
+        </div>
+        <div class="adoption-row">
+          <div class="adoption-stage">Enterprise &amp; Agentic AI Platforms</div>
+          <div class="adoption-cell">
+            <div class="adoption-bar"><div class="adoption-bar-fill" style="width: 10%; background: var(--dl-neon-green);"></div></div>
+            <span class="adoption-val">&mdash;</span>
+          </div>
+          <div class="adoption-cell">
+            <div class="adoption-bar"><div class="adoption-bar-fill" style="width: 80%; background: var(--text-tertiary);"></div></div>
+            <span class="adoption-val">80%</span>
+          </div>
+          <div class="adoption-example">GCP AgentSpace &middot; Zora AI</div>
+        </div>
+        <div class="adoption-row">
+          <div class="adoption-stage">Digital Workers</div>
+          <div class="adoption-cell">
+            <div class="adoption-bar"><div class="adoption-bar-fill" style="width: 5%; background: var(--dl-neon-green);"></div></div>
+            <span class="adoption-val">&mdash;</span>
+          </div>
+          <div class="adoption-cell">
+            <div class="adoption-bar"><div class="adoption-bar-fill" style="width: 90%; background: var(--text-tertiary);"></div></div>
+            <span class="adoption-val">90%</span>
+          </div>
+          <div class="adoption-example">"Alfred"</div>
+        </div>
+      </div>
+
+      <p class="source-line">Sources: <a class="inline-source" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">Deloitte Finance Trends Survey 2026</a> &middot; <a class="inline-source" href="https://www.deloitte.com/us/en/about/press-room/deloitte-q4-2025-cfo-signals-survey.html" target="_blank" rel="noopener">Deloitte Q4 2025 CFO Signals Spotlight</a></p>
+
+      <div class="panel-footer">
+        <button class="btn btn-ghost" data-prev>&larr; Back</button>
+        <button class="btn btn-primary" data-next>Next: What Needs to be True &rarr;</button>
+      </div>
+    </section>
+
+    <section class="panel" data-panel="2">
+      <div class="panel-header">
+        <span class="eyebrow">AI-Enabled Future of Finance</span>
+        <h1>What needs to be <span class="accent-word">true</span></h1>
+        <p class="deck">Five things have to be true to successfully achieve an AI-enabled future of Finance. Each builds on the one before it.</p>
+      </div>
+
+      <!-- FIVE PILLARS -->
+      <div class="pillars-grid">
+        <div class="pillar-card" data-pillar="1">
+          <div class="pillar-num">01</div>
+          <h3>Set a clear strategy</h3>
+          <p class="pillar-summary">Aligned to business outcomes with defined ownership and success measures.</p>
+          <div class="pillar-detail">
+            <ul>
+              <li><strong>Align with business goals</strong> — ensure your Finance AI strategy supports the business' objectives (revenue vs. cost).</li>
+              <li><strong>Collaborate with technology partners</strong> — involve technology stakeholders early to drive buy-in.</li>
+              <li><strong>Consider all enablers</strong> — assess AI's impact on Finance's capabilities, technologies, and talent.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pillar-card" data-pillar="2">
+          <div class="pillar-num">02</div>
+          <h3>Identify opportunities</h3>
+          <p class="pillar-summary">Prioritize high-value use cases across the organization.</p>
+          <div class="pillar-detail">
+            <ul>
+              <li><strong>Assess top-down</strong> — identify process areas with the largest potential disruption from AI.</li>
+              <li><strong>Reimagine capabilities</strong> — redesign future state end-to-end with AI as a critical enabler.</li>
+              <li>Start targeted; don't wait for vendor solutions to mature.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pillar-card" data-pillar="3">
+          <div class="pillar-num">03</div>
+          <h3>Define an investment strategy</h3>
+          <p class="pillar-summary">Tie funding to measurable value, platforms, and governance.</p>
+          <div class="pillar-detail">
+            <ul>
+              <li>Build foundations first: strategy &amp; governance, data, technology.</li>
+              <li>Move to single-agent solutions before multi-agent orchestration.</li>
+              <li>Enterprise value compounds as the stack matures.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pillar-card" data-pillar="4">
+          <div class="pillar-num">04</div>
+          <h3>Monitor &amp; realize value</h3>
+          <p class="pillar-summary">Identify KPIs focused on tracking the value of AI investments.</p>
+          <div class="pillar-detail">
+            <ul>
+              <li><strong>Financial</strong> — revenue per token consumed, AI run-rate as % of revenue.</li>
+              <li><strong>Operational</strong> — cycle-time reduction, time-to-value acceleration.</li>
+              <li><strong>Strategic</strong> — customer value creation, AI-enabled capabilities, speed to market.</li>
+              <li><strong>Employee</strong> — time on strategic work, engagement, time to proficiency.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pillar-card" data-pillar="5">
+          <div class="pillar-num">05</div>
+          <h3>Prepare Finance teams</h3>
+          <p class="pillar-summary">Across technology, data, operating model, talent, and adoption.</p>
+          <div class="pillar-detail">
+            <ul>
+              <li><strong>Technology</strong> — assess system architecture for limits and accelerators.</li>
+              <li><strong>Data</strong> — review the landscape and prioritize sources.</li>
+              <li><strong>Operating model</strong> — adjust structure to be leaner and more adaptive.</li>
+              <li><strong>Talent</strong> — understand if AI is a priority for Finance and what it means for the team.</li>
+              <li><strong>Adoption</strong> — incorporate AI fluency into the CFO strategy.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- READINESS SELF-ASSESSMENT -->
+      <div class="section-divider">
+        <span class="eyebrow">Interactive &middot; 60 seconds</span>
+        <h2>Where are you on each <span class="accent-word">pillar</span>?</h2>
+        <p style="max-width: 820px;">A quick read of your current state. No scoring, no benchmark — just a snapshot of where Finance sits on the five pillars right now.</p>
+      </div>
+
+      <div class="assessment" id="assessment"></div>
+
+      <p class="source-line">Source: <a class="inline-source" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">Deloitte Finance Trends Survey 2026</a></p>
+
+      <div class="panel-footer">
+        <button class="btn btn-ghost" data-prev>&larr; Back</button>
+        <button class="btn btn-primary" data-next>Next: Where to Start &rarr;</button>
+      </div>
+    </section>
+
+    <section class="panel" data-panel="3">
+      <div class="panel-header">
+        <span class="eyebrow">AI-Enabled Future of Finance</span>
+        <h1>Where to <span class="accent-word">start</span></h1>
+        <p class="deck">Twelve use case archetypes span three categories. Each represents a concrete opportunity for AI to drive impact across the Finance function — and each carries a different feasibility and ownership profile.</p>
+      </div>
+
+      <!-- USE CASE ARCHETYPES -->
+      <div class="archetype-columns">
+        <div class="archetype-col archetype-col--insights">
+          <div class="archetype-head">
+            <div class="archetype-tag">Insights Through Data</div>
+            <p>Uncover patterns, predict outcomes, identify risks, and optimize decision-making.</p>
+          </div>
+          <div class="archetype-card">
+            <h4>CFO Insights</h4>
+            <p>"What you need to know" executive intelligence on Revenue through EBITDA performance, sector &amp; services, transactional revenue.</p>
+          </div>
+          <div class="archetype-card">
+            <h4>BU Portfolio Insights</h4>
+            <p>Curated insights on sector performance (e.g., business unit portfolio) and market trends.</p>
+          </div>
+          <div class="archetype-card">
+            <h4>Market Intelligence</h4>
+            <p>Sense market trends, competitor performance tracking, and predict market shifts.</p>
+          </div>
+        </div>
+        <div class="archetype-col archetype-col--knowledge">
+          <div class="archetype-head">
+            <div class="archetype-tag">Knowledge On Demand</div>
+            <p>Answer policy questions, ensure compliance, automate guidance.</p>
+          </div>
+          <div class="archetype-card">
+            <h4>Policy Assistant</h4>
+            <p>Quick access to policies — T&amp;E, Delegation of Authority, Capitalization, ESG, Revenue Recognition.</p>
+          </div>
+          <div class="archetype-card">
+            <h4>Risk &amp; Compliance Navigator</h4>
+            <p>Search and analyze regulations, compliance documentation, and risk &amp; control matrices.</p>
+          </div>
+          <div class="archetype-card">
+            <h4>Controls / Access Management</h4>
+            <p>Monitoring agent for SOX controls, SOD compliance, Finance System Access.</p>
+          </div>
+        </div>
+        <div class="archetype-col archetype-col--process">
+          <div class="archetype-head">
+            <div class="archetype-tag">E2E Process Orchestration</div>
+            <p>Automate workflows, integrate systems, enhance productivity, improve end-user UX.</p>
+          </div>
+          <div class="archetype-card">
+            <h4>Billing &amp; Rev Rec Agent</h4>
+            <p>Match contract terms to billing triggers, prepare draft invoices, route exceptions, monitor ASC 606 compliance.</p>
+          </div>
+          <div class="archetype-card">
+            <h4>Cash Application Agent</h4>
+            <p>Apply payment by reconciling bank fees to AR using ML patterns, auto-generate overdue notices, escalate high-risk exceptions.</p>
+          </div>
+          <div class="archetype-card">
+            <h4>Project Expense Agent</h4>
+            <p>Ingest project budget and expense, map to project codes using logic &amp; historical patterns, route exceptions, generate spend analytics.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- EFFICIENCY MAP -->
+      <div class="section-divider">
+        <span class="eyebrow">Finance AI Efficiency Map</span>
+        <h2>Where AI drives the highest <span class="accent-word">efficiency</span> gains</h2>
+        <p style="max-width: 920px;">Expected efficiency gain by Finance function and sub-process. The function average sits at the top; each tile below is a discrete process colored by its expected gain band.</p>
+      </div>
+
+      <!-- Legend -->
+      <div class="effmap-legend">
+        <span class="effmap-legend-title">Expected efficiency gain:</span>
+        <span class="effmap-chip effmap-chip--vl">Very Low &middot; 0–19%</span>
+        <span class="effmap-chip effmap-chip--l">Low &middot; 20–29%</span>
+        <span class="effmap-chip effmap-chip--m">Medium &middot; 30–39%</span>
+        <span class="effmap-chip effmap-chip--h">High &middot; 40–49%</span>
+        <span class="effmap-chip effmap-chip--vh">Very High &middot; 50%+</span>
+      </div>
+
+      <!-- Function columns -->
+      <div class="effmap-grid">
+        <div class="effmap-col">
+          <div class="effmap-fnhead">
+            <div class="effmap-fnname">Operational Finance</div>
+            <div class="effmap-fnavg">~42%</div>
+          </div>
+          <div class="effmap-tile effmap-tile--h">Source-to-Pay</div>
+          <div class="effmap-tile effmap-tile--h">Order-to-Cash</div>
+          <div class="effmap-tile effmap-tile--vl">Payroll Accounting</div>
+          <div class="effmap-tile effmap-tile--h">Travel &amp; Expense</div>
+        </div>
+
+        <div class="effmap-col">
+          <div class="effmap-fnhead">
+            <div class="effmap-fnname">Controllership</div>
+            <div class="effmap-fnavg">~45%</div>
+          </div>
+          <div class="effmap-tile effmap-tile--l">Accounting Policy &amp; Governance</div>
+          <div class="effmap-tile effmap-tile--h">GL Management (Journals, Accruals)</div>
+          <div class="effmap-tile effmap-tile--m">Consolidation &amp; Close</div>
+          <div class="effmap-tile effmap-tile--h">External Financial Reporting</div>
+          <div class="effmap-tile effmap-tile--m">ESG Reporting</div>
+        </div>
+
+        <div class="effmap-col">
+          <div class="effmap-fnhead">
+            <div class="effmap-fnname">Treasury</div>
+            <div class="effmap-fnavg">~35%</div>
+          </div>
+          <div class="effmap-tile effmap-tile--h">Cash &amp; Liquidity Management</div>
+          <div class="effmap-tile effmap-tile--h">Foreign Exchange Management</div>
+          <div class="effmap-tile effmap-tile--m">Corporate Finance</div>
+          <div class="effmap-tile effmap-tile--h">Bank Relationship Management</div>
+          <div class="effmap-tile effmap-tile--m">Treasury Operations &amp; Technology</div>
+          <div class="effmap-tile effmap-tile--l">Policy &amp; Compliance</div>
+        </div>
+
+        <div class="effmap-col">
+          <div class="effmap-fnhead">
+            <div class="effmap-fnname">Tax</div>
+            <div class="effmap-fnavg">~30%</div>
+          </div>
+          <div class="effmap-tile effmap-tile--m">Tax Compliance</div>
+          <div class="effmap-tile effmap-tile--l">Tax Planning &amp; Analysis</div>
+          <div class="effmap-tile effmap-tile--m">International Tax</div>
+          <div class="effmap-tile effmap-tile--m">Indirect Tax</div>
+          <div class="effmap-tile effmap-tile--l">Tax Accounting</div>
+        </div>
+
+        <div class="effmap-col">
+          <div class="effmap-fnhead">
+            <div class="effmap-fnname">FP&amp;A</div>
+            <div class="effmap-fnavg">~45%</div>
+          </div>
+          <div class="effmap-tile effmap-tile--h">Strategic Planning</div>
+          <div class="effmap-tile effmap-tile--h">Budgeting</div>
+          <div class="effmap-tile effmap-tile--h">Forecasting</div>
+          <div class="effmap-tile effmap-tile--h">Management Reporting</div>
+          <div class="effmap-tile effmap-tile--h">Analysis, Insights &amp; Decision Support</div>
+        </div>
+
+        <div class="effmap-col">
+          <div class="effmap-fnhead">
+            <div class="effmap-fnname">Financial Governance &amp; Control</div>
+            <div class="effmap-fnavg">~40%</div>
+          </div>
+          <div class="effmap-tile effmap-tile--h">Controls Framework Management</div>
+          <div class="effmap-tile effmap-tile--m">Corporate Governance</div>
+          <div class="effmap-tile effmap-tile--m">IT &amp; Data Governance</div>
+          <div class="effmap-tile effmap-tile--m">Compliance (Regulatory, Financial, Operational)</div>
+          <div class="effmap-tile effmap-tile--h">Internal Audit</div>
+        </div>
+
+        <div class="effmap-col">
+          <div class="effmap-fnhead">
+            <div class="effmap-fnname">Business Finance</div>
+            <div class="effmap-fnavg">~43%</div>
+          </div>
+          <div class="effmap-tile effmap-tile--h">Sales &amp; Commissions</div>
+          <div class="effmap-tile effmap-tile--h">Pricing</div>
+          <div class="effmap-tile effmap-tile--m">Supply Chain Management</div>
+          <div class="effmap-tile effmap-tile--h">Deal Desk</div>
+          <div class="effmap-tile effmap-tile--h">M&amp;A</div>
+        </div>
+
+        <div class="effmap-col">
+          <div class="effmap-fnhead">
+            <div class="effmap-fnname">Investor Relations</div>
+            <div class="effmap-fnavg">~38%</div>
+          </div>
+          <div class="effmap-tile effmap-tile--l">Investor Relationship Management</div>
+        </div>
+      </div>
+
+      <!-- USE CASE PRIORITIZER -->
+      <div class="section-divider">
+        <span class="eyebrow">Interactive &middot; Click to select</span>
+        <h2>Which use cases land for <span class="accent-word">you</span>?</h2>
+        <p style="max-width: 820px;">Select the use cases you find most relevant. They'll plot on a feasibility &times; ownership matrix below — most CFOs find 3–5 selections gives the sharpest picture.</p>
+      </div>
+
+      <div class="prioritizer" id="prioritizer"></div>
+
+      <p class="source-line">Source: <a class="inline-source" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">Deloitte Finance Trends Survey 2026</a></p>
+
+      <div class="panel-footer">
+        <button class="btn btn-ghost" data-prev>&larr; Back</button>
+        <button class="btn btn-primary" data-next>Next: How to Invest &rarr;</button>
+      </div>
+    </section>
+
+    <section class="panel" data-panel="4">
+      <div class="panel-header">
+        <span class="eyebrow">AI-Enabled Future of Finance</span>
+        <h1>How to <span class="accent-word">invest</span></h1>
+        <p class="deck">Defining a clear investment strategy means knowing where to start and what value to capture. The path is stepwise — foundations first, then agents, then orchestration — with value compounded at each stage.</p>
+      </div>
+
+      <!-- INVESTMENT STAGES -->
+      <div class="invest-stages">
+        <div class="invest-stage" data-stage="1">
+          <div class="invest-step">Stage 01</div>
+          <h3>Strategy &amp; Governance</h3>
+          <p class="invest-summary">Set the direction, define ownership, agree on success measures.</p>
+          <ul class="invest-list">
+            <li>Document Finance AI strategy and tie to business outcomes</li>
+            <li>Establish AI governance, risk, and oversight</li>
+            <li>Define investment thresholds and decision rights</li>
+          </ul>
+          <div class="invest-value">Foundational &middot; non-negotiable</div>
+        </div>
+        <div class="invest-stage" data-stage="2">
+          <div class="invest-step">Stage 02</div>
+          <h3>Data Foundations</h3>
+          <p class="invest-summary">Get the data ready before the agents.</p>
+          <ul class="invest-list">
+            <li>Inventory and prioritize Finance data sources</li>
+            <li>Address data quality, lineage, and access</li>
+            <li>Stand up a Finance data product layer</li>
+          </ul>
+          <div class="invest-value">Without this, agents fail at scale</div>
+        </div>
+        <div class="invest-stage" data-stage="3">
+          <div class="invest-step">Stage 03</div>
+          <h3>Technology Platforms</h3>
+          <p class="invest-summary">Modernize the stack to support AI workloads.</p>
+          <ul class="invest-list">
+            <li>Cloud ERP and EPM modernization</li>
+            <li>Integrated analytics platform with single front door</li>
+            <li>LLM access and orchestration infrastructure</li>
+          </ul>
+          <div class="invest-value">Enables single-agent solutions</div>
+        </div>
+        <div class="invest-stage" data-stage="4">
+          <div class="invest-step">Stage 04</div>
+          <h3>Single-Agent Solutions</h3>
+          <p class="invest-summary">Deploy targeted AI agents against specific processes.</p>
+          <ul class="invest-list">
+            <li>Policy assistants, controls monitoring, close co-pilots</li>
+            <li>Measure value per agent on the four KPI dimensions</li>
+            <li>Refine and scale what works; retire what doesn't</li>
+          </ul>
+          <div class="invest-value">First measurable ROI</div>
+        </div>
+        <div class="invest-stage invest-stage--peak" data-stage="5">
+          <div class="invest-step">Stage 05</div>
+          <h3>Multi-Agent Orchestration</h3>
+          <p class="invest-summary">Agents collaborate across processes to deliver end-to-end outcomes.</p>
+          <ul class="invest-list">
+            <li>End-to-end orchestration across O2C, R2R, S2P</li>
+            <li>Agents that pass context, escalate exceptions, learn from each other</li>
+            <li>Finance function operating as a network of agents + humans</li>
+          </ul>
+          <div class="invest-value">Compound enterprise value</div>
+        </div>
+      </div>
+
+      <div class="callout-bar" style="margin-top: 2rem;">
+        Most Finance functions today sit at Stage 01–02. Few are past Stage 04 in production. <span class="accent-word">Sequence matters as much as size.</span>
+      </div>
+
+      <!-- VALUE KPIs -->
+      <div class="section-divider">
+        <span class="eyebrow">Monitoring AI Value</span>
+        <h2>Four dimensions of <span class="accent-word">value</span></h2>
+        <p style="max-width: 820px;">AI value isn't only financial. Tracking all four dimensions makes the next investment case defensible.</p>
+      </div>
+
+      <div class="value-grid">
+        <div class="value-card value-card--financial">
+          <div class="value-icon">$</div>
+          <div class="value-tag">Financial</div>
+          <h3>Cash &amp; efficiency</h3>
+          <ul>
+            <li>Revenue per token consumed</li>
+            <li>AI run-rate as % of revenue</li>
+            <li>Cost-to-serve reduction per process</li>
+            <li>Productivity hours reclaimed</li>
+          </ul>
+        </div>
+        <div class="value-card value-card--operational">
+          <div class="value-icon">⚙</div>
+          <div class="value-tag">Operational</div>
+          <h3>Speed &amp; quality</h3>
+          <ul>
+            <li>Cycle-time reduction</li>
+            <li>Time-to-value acceleration</li>
+            <li>Error and exception rates</li>
+            <li>Process throughput</li>
+          </ul>
+        </div>
+        <div class="value-card value-card--strategic">
+          <div class="value-icon">◎</div>
+          <div class="value-tag">Strategic</div>
+          <h3>Competitive position</h3>
+          <ul>
+            <li>Customer value creation</li>
+            <li>New AI-enabled capabilities</li>
+            <li>Speed to market for new offerings</li>
+            <li>Differentiation vs. peers</li>
+          </ul>
+        </div>
+        <div class="value-card value-card--employee">
+          <div class="value-icon">◈</div>
+          <div class="value-tag">Employee</div>
+          <h3>Talent &amp; engagement</h3>
+          <ul>
+            <li>Time on strategic work</li>
+            <li>Engagement &amp; retention</li>
+            <li>Time-to-proficiency for new hires</li>
+            <li>AI fluency across the function</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="source-line">Sources: <a class="inline-source" href="https://www.deloitte.com/us/en/insights/topics/leadership/finance-trends-leadership.html" target="_blank" rel="noopener">Deloitte Finance Trends Survey 2026</a> &middot; <a class="inline-source" href="https://www.deloitte.com/us/en/about/press-room/deloitte-q4-2025-cfo-signals-survey.html" target="_blank" rel="noopener">Deloitte Q4 2025 CFO Signals Spotlight</a></p>
+
+      <div class="panel-footer">
+        <button class="btn btn-ghost" data-prev>&larr; Back</button>
+        <button class="btn btn-primary" data-next>Next: Your Path Forward &rarr;</button>
+      </div>
+    </section>
+
+    <section class="panel" data-panel="5">
+      <div class="panel-header">
+        <span class="eyebrow">Conversation Summary</span>
+        <h1>Your <span class="accent-word">path</span> forward</h1>
+        <p class="deck">A pulled-together view of what you said across the earlier tabs &mdash; your focus ranking, your readiness profile, and the use cases you identified. Print it as a leave-behind for the meeting.</p>
+      </div>
+
+      <!-- SYNTHESIS -->
+      <div class="synthesis" id="synthesis"></div>
+
+      <div class="panel-footer">
+        <button class="btn btn-ghost" data-prev>&larr; Back</button>
+        <button class="btn btn-primary" id="printBtn" disabled>Print Summary</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <span>AI-Enabled Future of Finance &middot; Interactive conversation tool</span>
+    <span class="app-footer-meta">Deloitte &middot; v1.0 &middot; May 2026</span>
+  </footer>
+</div>
+
+<script>
+  // ============ APP STATE (shared across tabs) ============
+  const appState = {
+    // Each pillar stores {score, label} when answered, null otherwise
+    assessment: { 1: null, 2: null, 3: null, 4: null, 5: null },
+    prioritizer: { selected: new Set() },
+    // Tab 2 focus ranking — role id ('finance' | 'enterprise' | 'market') → rank (1, 2, or 3)
+    // Click cycles unranked → 1 → 2 → 3 → unranked
+    focus: { finance: null, enterprise: null, market: null }
+  };
+
+  // Helper: extract score from assessment entry (returns null if unanswered)
+  function getScore(entry) {
+    return entry === null ? null : entry.score;
+  }
+  // Helper: extract label from assessment entry
+  function getLabel(entry) {
+    return entry === null ? null : entry.label;
+  }
+
+  // Pretty labels and color tokens for the three Finance roles
+  const ROLE_LABELS = {
+    finance:    { name: 'Finance for Finance',        descriptor: 'Optimize traditional operations' },
+    enterprise: { name: 'Finance for the Enterprise', descriptor: 'Strategic business partner & adviser' },
+    market:     { name: 'Finance for the Market',     descriptor: 'Storyteller to the investor community' }
+  };
+  const RANK_LABELS = { 1: '1st priority', 2: '2nd priority', 3: '3rd priority' };
+  const RANK_SHORT  = { 1: '1st', 2: '2nd', 3: '3rd' };
+
+  // Full role details used in synthesis tiles + print summary
+  const ROLE_DETAILS = {
+    finance: {
+      name: 'Finance for Finance',
+      descriptor: 'Optimize traditional operations',
+      body: 'Leverage technology and data to deliver scalable, agile, cost-effective services from the right locations to maximize efficiency.',
+      bullets: ['Manage compliance and risk', 'Process receivables and payables', 'Deliver reliable financial statements'],
+      accent: 'finance'
+    },
+    enterprise: {
+      name: 'Finance for the Enterprise',
+      descriptor: 'Strategic business partner & adviser',
+      body: 'Provide timely insights and decision support, manage risk, uncover new business opportunities, drive efficient capital allocation.',
+      bullets: ['Track performance & identify improvement', 'Data-driven planning & forecasting', 'Identify risks & opportunities for M&A'],
+      accent: 'enterprise'
+    },
+    market: {
+      name: 'Finance for the Market',
+      descriptor: 'Storyteller to the investor community',
+      body: 'Build trust, enhance value, and boost consumer confidence through clear and reliable communications that improve stakeholder sentiment.',
+      bullets: ['Build trust through clear communication', 'Translate strategy into value drivers', 'Benchmark peer KPIs & disclosures'],
+      accent: 'market'
+    }
+  };
+
+  // ============ TAB NAVIGATION ============
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+
+  function setTab(index) {
+    tabs.forEach((t, i) => t.classList.toggle('active', i === index));
+    panels.forEach((p, i) => p.classList.toggle('active', i === index));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // When navigating to Tab 6, refresh the synthesis with current state
+    if (index === 5 && typeof renderSynthesis === 'function') {
+      renderSynthesis();
+    }
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => setTab(parseInt(tab.dataset.tab, 10)));
+  });
+
+  // Next / Back buttons
+  document.addEventListener('click', (e) => {
+    if (e.target.matches('[data-next]')) {
+      const current = document.querySelector('.panel.active');
+      const idx = parseInt(current.dataset.panel, 10);
+      if (idx < panels.length - 1) setTab(idx + 1);
+    }
+    if (e.target.matches('[data-prev]')) {
+      const current = document.querySelector('.panel.active');
+      const idx = parseInt(current.dataset.panel, 10);
+      if (idx > 0) setTab(idx - 1);
+    }
+  });
+
+  // ============ TAB 3: PILLAR EXPAND/COLLAPSE ============
+  document.querySelectorAll('.pillar-card').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('expanded'));
+  });
+
+  // ============ TAB 2: FINANCE ROLE FOCUS RANKING ============
+  // Click cycle: unranked → 1 → 2 → 3 → unranked.
+  // Ranks are unique — if a role is assigned a rank another role already holds,
+  // that other role drops to unranked.
+  function cycleRoleRank(roleId) {
+    const current = appState.focus[roleId];
+
+    if (current !== null) {
+      // Card is already ranked → unrank it, then compact remaining ranks
+      appState.focus[roleId] = null;
+      // Shift any rank above the removed one down by 1, so ranks stay contiguous (1..N)
+      Object.keys(appState.focus).forEach(otherId => {
+        if (appState.focus[otherId] !== null && appState.focus[otherId] > current) {
+          appState.focus[otherId] = appState.focus[otherId] - 1;
+        }
+      });
+    } else {
+      // Card is unranked → assign next available rank (1, 2, or 3)
+      const used = Object.values(appState.focus).filter(r => r !== null);
+      const nextRank = used.length + 1;
+      if (nextRank <= 3) {
+        appState.focus[roleId] = nextRank;
+      }
+      // If all 3 ranks are already used, ignore the click (user has to unrank one first)
+    }
+    renderRoleCards();
+  }
+
+  function renderRoleCards() {
+    document.querySelectorAll('.role-card[data-role]').forEach(card => {
+      const id = card.dataset.role;
+      const rank = appState.focus[id];
+      card.classList.toggle('ranked', rank !== null);
+      card.classList.toggle('rank-1', rank === 1);
+      card.classList.toggle('rank-2', rank === 2);
+      card.classList.toggle('rank-3', rank === 3);
+      const badge = card.querySelector('.role-rank-badge');
+      if (badge) {
+        badge.textContent = rank === null ? '' : (RANK_SHORT[rank] || '');
+      }
+    });
+  }
+
+  document.querySelectorAll('.role-card[data-role]').forEach(card => {
+    card.addEventListener('click', () => cycleRoleRank(card.dataset.role));
+  });
+  renderRoleCards();
+
+  // ============ TAB 3: READINESS SELF-ASSESSMENT ============
+  const PILLARS = [
+    {
+      id: 1,
+      name: 'Strategy',
+      question: 'How defined is your Finance AI strategy?',
+      options: [
+        { label: 'No strategy', score: 0 },
+        { label: 'Discussing it', score: 1 },
+        { label: 'Documented, not approved', score: 2 },
+        { label: 'Approved with ownership', score: 3 }
+      ],
+      weakness: "Without a defined Finance AI strategy, individual experiments will continue to stall before they reach production. The fastest unlock here is documenting the why, the who, and the success measures — before scaling any new build."
+    },
+    {
+      id: 2,
+      name: 'Opportunities',
+      question: 'How are you identifying AI use cases?',
+      options: [
+        { label: 'Not yet', score: 0 },
+        { label: 'Reacting to vendors', score: 1 },
+        { label: 'Internal list, unranked', score: 2 },
+        { label: 'Prioritized portfolio', score: 3 }
+      ],
+      weakness: "Use cases that arrive through vendor pitches rarely match Finance's highest-value opportunities. A prioritized portfolio — owned by Finance, ranked by business value — keeps you from chasing demos."
+    },
+    {
+      id: 3,
+      name: 'Investment',
+      question: 'Where are you on the investment ladder?',
+      options: [
+        { label: 'No funding', score: 0 },
+        { label: 'Strategy only', score: 1 },
+        { label: 'Data & tech ready', score: 2 },
+        { label: 'Agents in production', score: 3 }
+      ],
+      weakness: "Investment that skips foundational layers (data, governance, platforms) creates agents that work in pilots but break at scale. The order of investment matters as much as the size."
+    },
+    {
+      id: 4,
+      name: 'Value Tracking',
+      question: 'How do you measure AI value today?',
+      options: [
+        { label: "We don't", score: 0 },
+        { label: 'Anecdotal', score: 1 },
+        { label: 'Financial only', score: 2 },
+        { label: 'All four dimensions', score: 3 }
+      ],
+      weakness: "Without measurement across financial, operational, strategic, and employee value, you can't defend the next investment. CFOs without these KPIs end up funding AI on faith — which doesn't scale."
+    },
+    {
+      id: 5,
+      name: 'Team Readiness',
+      question: 'How ready is your team across the five enabler areas?',
+      options: [
+        { label: 'Not ready', score: 0 },
+        { label: '1–2 areas', score: 1 },
+        { label: '3–4 areas', score: 2 },
+        { label: 'All 5 active', score: 3 }
+      ],
+      weakness: "Technology, data, operating model, talent, and adoption have to move together. A gap in any one of the five blocks adoption — and adoption is what turns AI investment into return."
+    }
+  ];
+
+  function renderAssessment() {
+    const root = document.getElementById('assessment');
+    if (!root) return;
+    root.innerHTML = `
+      <div class="assessment-questions">
+        ${PILLARS.map(p => `
+          <div class="q-card" data-q="${p.id}">
+            <div class="q-pillar">Pillar ${p.id} &middot; ${p.name}</div>
+            <div class="q-text">${p.question}</div>
+            <div class="q-options">
+              ${p.options.map((opt, i) => `
+                <button class="q-option" data-pillar="${p.id}" data-score="${opt.score}" data-label="${opt.label.replace(/"/g, '&quot;')}">
+                  <span class="q-score">Level ${opt.score}</span>
+                  ${opt.label}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="a-results-container"></div>
+    `;
+    // wire option clicks
+    root.querySelectorAll('.q-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pid = parseInt(btn.dataset.pillar, 10);
+        const score = parseInt(btn.dataset.score, 10);
+        const label = btn.dataset.label;
+        appState.assessment[pid] = { score, label };
+        // mark selection
+        const qcard = btn.closest('.q-card');
+        qcard.classList.add('answered');
+        qcard.querySelectorAll('.q-option').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        updateAssessmentResults();
+      });
+    });
+    updateAssessmentResults();
+  }
+
+  function updateAssessmentResults() {
+    const container = document.querySelector('#assessment .a-results-container');
+    const root = document.getElementById('assessment');
+    if (!container || !root) return;
+
+    const answered = Object.values(appState.assessment).filter(v => v !== null).length;
+    const total = PILLARS.length;
+
+    if (answered === 0) {
+      root.classList.remove('has-results');
+      container.innerHTML = `
+        <div class="a-results-empty">
+          Answer the questions on the left to see your readiness profile.
+        </div>
+      `;
+      return;
+    }
+
+    root.classList.add('has-results');
+
+    // Build radar chart — extract scores from the new {score, label} shape
+    const scores = PILLARS.map(p => getScore(appState.assessment[p.id]));
+    const radar = buildRadarSVG(scores, PILLARS.map(p => p.name));
+
+    // Synthesis: name lowest-scoring pillar(s), no recommendation
+    let synthesis = '';
+    if (answered === total) {
+      const minScore = Math.min(...scores);
+      const maxScore = Math.max(...scores);
+      const lowestIdxs = scores
+        .map((s, i) => s === minScore ? i : -1)
+        .filter(i => i !== -1);
+      const highestIdxs = scores
+        .map((s, i) => s === maxScore ? i : -1)
+        .filter(i => i !== -1);
+      const lowest = lowestIdxs.map(i => PILLARS[i].name);
+      const highest = highestIdxs.map(i => PILLARS[i].name);
+
+      if (minScore === maxScore) {
+        synthesis = `
+          <div class="a-synthesis">
+            Even profile across all five pillars at level <strong>${minScore}</strong>.
+          </div>
+        `;
+      } else {
+        synthesis = `
+          <div class="a-synthesis">
+            Highest: <strong>${highest.join(', ')}</strong> (level ${maxScore}).<br>
+            Lowest: <strong>${lowest.join(', ')}</strong> (level ${minScore}).
+          </div>
+        `;
+      }
+    } else {
+      synthesis = `
+        <div class="a-synthesis">
+          ${total - answered} more ${total - answered === 1 ? 'question' : 'questions'} to go.
+        </div>
+      `;
+    }
+
+    container.innerHTML = `
+      <div class="a-results">
+        <h4>Your Readiness Profile</h4>
+        <div class="a-progress">${answered} of ${total} answered</div>
+        <div class="a-progress-bar"><div class="a-progress-fill" style="width: ${(answered/total)*100}%;"></div></div>
+        ${radar}
+        ${synthesis}
+      </div>
+    `;
+  }
+
+  function buildRadarSVG(scores, labels) {
+    // Expanded viewBox to give long labels room.
+    const drawSize = 320;
+    const padX = 90;
+    const padTop = 12;
+    const padBottom = 12;
+    const vbW = drawSize + padX * 2;
+    const vbH = drawSize + padTop + padBottom;
+    const cx = vbW / 2;
+    const cy = padTop + drawSize / 2;
+    const maxR = 110;
+    const n = scores.length;
+    const angleStep = (Math.PI * 2) / n;
+    const startAngle = -Math.PI / 2; // start at top
+
+    // Concentric grid polygons at levels 1, 2, 3
+    const gridLevels = [1, 2, 3];
+    const gridPolygons = gridLevels.map(level => {
+      const r = (level / 3) * maxR;
+      const pts = [];
+      for (let i = 0; i < n; i++) {
+        const a = startAngle + i * angleStep;
+        pts.push(`${cx + Math.cos(a) * r},${cy + Math.sin(a) * r}`);
+      }
+      return `<polygon points="${pts.join(' ')}" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>`;
+    }).join('');
+
+    // Axis lines
+    const axes = [];
+    for (let i = 0; i < n; i++) {
+      const a = startAngle + i * angleStep;
+      axes.push(`<line x1="${cx}" y1="${cy}" x2="${cx + Math.cos(a) * maxR}" y2="${cy + Math.sin(a) * maxR}" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>`);
+    }
+
+    // Data polygon (treat null as 0 for plotting)
+    const dataPts = [];
+    const points = [];
+    for (let i = 0; i < n; i++) {
+      const a = startAngle + i * angleStep;
+      const score = scores[i] === null ? 0 : scores[i];
+      const r = (score / 3) * maxR;
+      const x = cx + Math.cos(a) * r;
+      const y = cy + Math.sin(a) * r;
+      dataPts.push(`${x},${y}`);
+      if (scores[i] !== null) {
+        points.push(`<circle cx="${x}" cy="${y}" r="4" fill="#86EB22"/>`);
+      }
+    }
+
+    // Level scale labels (0, 1, 2, 3) along the top vertical axis — for read-off only
+    const scaleLabels = gridLevels.map(level => {
+      const r = (level / 3) * maxR;
+      const y = cy - r;
+      return `<text x="${cx + 5}" y="${y + 3}" fill="#666" font-size="9" font-family="Open Sans, sans-serif" font-weight="600">${level}</text>`;
+    }).join('') + `<text x="${cx + 5}" y="${cy + 3}" fill="#666" font-size="9" font-family="Open Sans, sans-serif" font-weight="600">0</text>`;
+
+    // Pillar labels around the perimeter
+    const labelEls = [];
+    for (let i = 0; i < n; i++) {
+      const a = startAngle + i * angleStep;
+      const lr = maxR + 24;
+      const lx = cx + Math.cos(a) * lr;
+      const ly = cy + Math.sin(a) * lr;
+      let anchor = 'middle';
+      if (Math.cos(a) > 0.3) anchor = 'start';
+      else if (Math.cos(a) < -0.3) anchor = 'end';
+      labelEls.push(`<text x="${lx}" y="${ly}" text-anchor="${anchor}" dominant-baseline="middle" fill="#d8d8d8" font-size="11" font-family="Open Sans, sans-serif" font-weight="600">${labels[i]}</text>`);
+    }
+
+    return `
+      <svg class="radar-svg" viewBox="0 0 ${vbW} ${vbH}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        ${gridPolygons}
+        ${axes.join('')}
+        ${scaleLabels}
+        <polygon points="${dataPts.join(' ')}" fill="rgba(134, 235, 34, 0.28)" stroke="#86EB22" stroke-width="2" stroke-linejoin="round"/>
+        ${points.join('')}
+        ${labelEls.join('')}
+      </svg>
+    `;
+  }
+
+  // Initialize Tab 3 assessment
+  renderAssessment();
+
+  // ============ TAB 4: USE CASE PRIORITIZER ============
+  // Source: FinanceAI Sample Use Case Slideware (Deloitte, Feb 2026), page 4.
+  // - efficiency: unique values per use case, derived from PDV Efficiency Map sub-process band
+  //   plus adjustments for process structure (structured/repetitive → higher; judgment/unstructured → lower).
+  //   NOT displayed to the user — used only for matrix X-axis position and priority ranking.
+  // - ownership: 'high' = Finance owns end-to-end, 'medium' = partners with business, 'low' = others drive
+  // - maturity: 'live' = named on page 5 Live Use Cases, 'inflight' = MVP (marked * on page 4),
+  //   'emerging' = In Flight (not yet at MVP)
+  const USE_CASES = [
+    // ---- Operational Finance ----
+    { id: 1,  name: 'Contract Review',                                       category: 'knowledge', function: 'Operational Finance', ownership: 'medium', feasibility: 32, maturity: 'live' },
+    { id: 2,  name: 'Revenue Leakage & Invoice Error Correction',            category: 'process',   function: 'Operational Finance', ownership: 'high',   feasibility: 46, maturity: 'inflight' },
+    { id: 3,  name: 'Collections Optimization',                              category: 'process',   function: 'Operational Finance', ownership: 'high',   feasibility: 44, maturity: 'inflight' },
+    { id: 4,  name: 'Proactive Cash Collection Alert & Outreach',            category: 'process',   function: 'Operational Finance', ownership: 'high',   feasibility: 42, maturity: 'inflight' },
+    { id: 5,  name: 'Optimal Payment Terms (DSO)',                           category: 'insights',  function: 'Operational Finance', ownership: 'medium', feasibility: 39, maturity: 'emerging' },
+    { id: 6,  name: 'Touchless Financial Close',                             category: 'process',   function: 'Operational Finance', ownership: 'high',   feasibility: 48, maturity: 'inflight' },
+    { id: 7,  name: 'Duplicate Invoice Detection & Notification',            category: 'process',   function: 'Operational Finance', ownership: 'high',   feasibility: 52, maturity: 'live' },
+    { id: 8,  name: 'Optimal Payment Timing Recommendation',                 category: 'process',   function: 'Operational Finance', ownership: 'high',   feasibility: 41, maturity: 'inflight' },
+    { id: 9,  name: 'Vendor Data Insights',                                  category: 'insights',  function: 'Operational Finance', ownership: 'high',   feasibility: 38, maturity: 'inflight' },
+
+    // ---- Controllership ----
+    { id: 10, name: 'Automated Financial Statement Preparation',             category: 'process',   function: 'Controllership',      ownership: 'high',   feasibility: 49, maturity: 'inflight' },
+    { id: 11, name: 'Narrative MD&A Draft Generation',                       category: 'knowledge', function: 'Controllership',      ownership: 'high',   feasibility: 44, maturity: 'inflight' },
+    { id: 12, name: 'Draft Sections of 10Q / 10K',                           category: 'knowledge', function: 'Controllership',      ownership: 'high',   feasibility: 43, maturity: 'inflight' },
+    { id: 13, name: 'Account Variance Analysis & Intelligent Explanations',  category: 'insights',  function: 'Controllership',      ownership: 'high',   feasibility: 47, maturity: 'live' },
+    { id: 14, name: 'Draft Regulatory Reports Generation',                   category: 'knowledge', function: 'Controllership',      ownership: 'high',   feasibility: 36, maturity: 'inflight' },
+    { id: 15, name: 'Suspect Journal Entry Real-Time Notification',          category: 'process',   function: 'Controllership',      ownership: 'high',   feasibility: 41, maturity: 'emerging' },
+
+    // ---- FP&A ----
+    { id: 16, name: 'Chat-with-my-Finance-Data',                             category: 'insights',  function: 'FP&A',                ownership: 'high',   feasibility: 47, maturity: 'live' },
+    { id: 17, name: 'Guided Budget Creation Workflows',                      category: 'process',   function: 'FP&A',                ownership: 'high',   feasibility: 40, maturity: 'emerging' },
+    { id: 18, name: 'ML-Enabled Predictive Forecasting',                     category: 'insights',  function: 'FP&A',                ownership: 'high',   feasibility: 46, maturity: 'live' },
+    { id: 19, name: 'Financial Data Variance Analysis & Explanation',        category: 'insights',  function: 'FP&A',                ownership: 'high',   feasibility: 48, maturity: 'live' },
+    { id: 20, name: 'CFO Insights for FP&A',                                 category: 'insights',  function: 'FP&A',                ownership: 'high',   feasibility: 51, maturity: 'live' },
+
+    // ---- Business Finance ----
+    { id: 21, name: 'Automate Finance Data Across Sources',                  category: 'process',   function: 'Business Finance',    ownership: 'medium', feasibility: 39, maturity: 'emerging' },
+    { id: 22, name: 'Demand Planning, Costing & Pricing',                    category: 'insights',  function: 'Business Finance',    ownership: 'medium', feasibility: 44, maturity: 'inflight' },
+    { id: 23, name: 'Anomaly Detection & Resolution Recommendations',        category: 'process',   function: 'Business Finance',    ownership: 'medium', feasibility: 49, maturity: 'live' },
+    { id: 24, name: 'Investing Strategy Recommendations',                    category: 'insights',  function: 'Business Finance',    ownership: 'medium', feasibility: 28, maturity: 'emerging' },
+    { id: 25, name: 'Executive Financial Health Overview',                   category: 'insights',  function: 'Business Finance',    ownership: 'medium', feasibility: 41, maturity: 'emerging' },
+    { id: 26, name: 'Predictive Financial Performance from Data Patterns',   category: 'insights',  function: 'Business Finance',    ownership: 'medium', feasibility: 45, maturity: 'inflight' },
+    { id: 27, name: 'Project-Level Scenario Analysis',                       category: 'insights',  function: 'Business Finance',    ownership: 'medium', feasibility: 42, maturity: 'inflight' },
+    { id: 28, name: 'M&A Cleanroom Risk Detection & Summarization',          category: 'knowledge', function: 'Business Finance',    ownership: 'medium', feasibility: 33, maturity: 'emerging' },
+    { id: 29, name: 'Scenario Modeling Generator',                           category: 'insights',  function: 'Business Finance',    ownership: 'medium', feasibility: 38, maturity: 'emerging' },
+    { id: 30, name: 'Dynamic Executive Insights Hub (Trends & KPIs)',        category: 'insights',  function: 'Business Finance',    ownership: 'medium', feasibility: 43, maturity: 'inflight' },
+
+    // ---- Treasury ----
+    { id: 31, name: 'Predictive Cash Flow Forecasting',                      category: 'insights',  function: 'Treasury',            ownership: 'high',   feasibility: 41, maturity: 'live' },
+    { id: 32, name: 'Proactive FX Monitoring',                               category: 'process',   function: 'Treasury',            ownership: 'high',   feasibility: 36, maturity: 'emerging' },
+
+    // ---- Tax ----
+    { id: 33, name: 'Tax Notice Response & Audit Support Automation',        category: 'knowledge', function: 'Tax',                 ownership: 'high',   feasibility: 32, maturity: 'emerging' },
+    { id: 34, name: 'Tax Report Generation',                                 category: 'process',   function: 'Tax',                 ownership: 'high',   feasibility: 31, maturity: 'emerging' },
+    { id: 35, name: 'Predictive Tax Planning, Compliance & Risk',            category: 'insights',  function: 'Tax',                 ownership: 'high',   feasibility: 23, maturity: 'emerging' },
+
+    // ---- Financial Governance & Control ----
+    { id: 36, name: 'Proactive Fraud Detection',                             category: 'process',   function: 'Financial Governance', ownership: 'high',  feasibility: 47, maturity: 'emerging' },
+    { id: 37, name: 'Draft Audit Report Generation',                         category: 'knowledge', function: 'Financial Governance', ownership: 'high',  feasibility: 37, maturity: 'emerging' },
+    { id: 38, name: 'Predictive Compliance Monitoring',                      category: 'process',   function: 'Financial Governance', ownership: 'high',  feasibility: 38, maturity: 'emerging' },
+
+    // ---- Investor Relations ----
+    { id: 39, name: 'Predictive Company Valuation',                          category: 'insights',  function: 'Investor Relations',  ownership: 'low',    feasibility: 29, maturity: 'inflight' },
+    { id: 40, name: 'Financial Rules & Regulations Interpretation',          category: 'knowledge', function: 'Investor Relations',  ownership: 'medium', feasibility: 24, maturity: 'inflight' },
+    { id: 41, name: 'Earnings Call Content Generation',                      category: 'knowledge', function: 'Investor Relations',  ownership: 'medium', feasibility: 34, maturity: 'inflight' },
+    { id: 42, name: 'IR Earnings Assistant',                                 category: 'knowledge', function: 'Investor Relations',  ownership: 'medium', feasibility: 39, maturity: 'live' }
+  ];
+  // Category labels mirror the 3 archetype buckets from PDV page 10
+  const CATEGORY_LABELS = {
+    insights: 'Insights Through Data',
+    knowledge: 'Knowledge On Demand',
+    process: 'E2E Process Orchestration'
+  };
+  const MATURITY_LABELS = {
+    live: 'Live',
+    inflight: 'MVP',
+    emerging: 'In Flight'
+  };
+
+  function ownershipToY(o) {
+    // Y-axis: high = top, low = bottom
+    if (o === 'high') return 0.82;
+    if (o === 'medium') return 0.5;
+    return 0.18;
+  }
+  function feasibilityToX(f) {
+    // Feasibility uses band buckets: 15, 25, 35, 45, 55
+    const min = 10, max = 60;
+    const clamped = Math.max(min, Math.min(max, f));
+    return (clamped - min) / (max - min);
+  }
+  function isInStartHere(uc) {
+    // Start Here = high ownership AND feasibility >= 40
+    return uc.ownership === 'high' && uc.feasibility >= 40;
+  }
+
+  // Quadrant priority rank — lower is higher priority
+  //   1: Start Here   (high ownership, feasibility >= 40)
+  //   2: Build Capability (high ownership, feasibility < 40)
+  //   3: Partner Up   (medium ownership, feasibility >= 40)
+  //   4: Deprioritize (medium ownership, feasibility < 40)
+  //   5: Low ownership (any feasibility)
+  function quadrantRank(uc) {
+    if (uc.ownership === 'high'   && uc.feasibility >= 40) return 1;
+    if (uc.ownership === 'high'   && uc.feasibility <  40) return 2;
+    if (uc.ownership === 'medium' && uc.feasibility >= 40) return 3;
+    if (uc.ownership === 'medium' && uc.feasibility <  40) return 4;
+    return 5;
+  }
+
+  // Sort selected use cases by strategic priority, then assign legendNum 1..n.
+  // Mutates each entry (adds .legendNum) and returns the sorted array.
+  // Priority: quadrant rank asc, then feasibility desc, then name asc for stability.
+  function prioritizeAndNumber(selectedUCs) {
+    selectedUCs.sort((a, b) => {
+      const qa = quadrantRank(a), qb = quadrantRank(b);
+      if (qa !== qb) return qa - qb;
+      if (a.feasibility !== b.feasibility) return b.feasibility - a.feasibility;
+      return a.name.localeCompare(b.name);
+    });
+    selectedUCs.forEach((uc, i) => uc.legendNum = i + 1);
+    return selectedUCs;
+  }
+
+  // Deterministic small jitter for dots that share coordinates.
+  // Returns offset in normalized [-0.04, 0.04] based on id and position-in-cluster.
+  function jitterOffsets(uc, allSelected) {
+    const sameSpot = allSelected.filter(o =>
+      o.ownership === uc.ownership && o.feasibility === uc.feasibility
+    );
+    if (sameSpot.length <= 1) return { dx: 0, dy: 0 };
+    const idx = sameSpot.findIndex(o => o.id === uc.id);
+    const n = sameSpot.length;
+    // arrange in a small circle around the true center
+    const angle = (idx / n) * Math.PI * 2;
+    const radius = Math.min(0.06, 0.025 + 0.012 * Math.log2(n));
+    return { dx: Math.cos(angle) * radius, dy: Math.sin(angle) * radius };
+  }
+
+  function renderPrioritizer() {
+    const root = document.getElementById('prioritizer');
+    if (!root) return;
+
+    // Function order matches the Efficiency Map column order
+    const FUNCTIONS = [
+      { name: 'Operational Finance', avg: '~42%' },
+      { name: 'Controllership', avg: '~45%' },
+      { name: 'Treasury', avg: '~35%' },
+      { name: 'Tax', avg: '~30%' },
+      { name: 'FP&A', avg: '~45%' },
+      { name: 'Financial Governance', avg: '~40%' },
+      { name: 'Business Finance', avg: '~43%' },
+      { name: 'Investor Relations', avg: '~38%' }
+    ];
+
+    root.innerHTML = `
+      <div class="prioritizer-counter">
+        <div class="pc-count" id="pcCount"><strong>0</strong> selected &middot; 3–5 recommended</div>
+        <button class="pc-clear" id="pcClear" disabled>Clear all</button>
+      </div>
+      <div class="uc-filters" id="ucFilters">
+        <button class="uc-filter active" data-filter="all">All <span class="uc-filter-count">${USE_CASES.length}</span></button>
+        ${FUNCTIONS.map(fn => {
+          const count = USE_CASES.filter(uc => uc.function === fn.name).length;
+          return `<button class="uc-filter" data-filter="${fn.name}">${fn.name} <span class="uc-filter-count">${count}</span></button>`;
+        }).join('')}
+      </div>
+      <div id="ucSections">
+        ${FUNCTIONS.map(fn => {
+          const cards = USE_CASES.filter(uc => uc.function === fn.name);
+          return `
+            <section class="uc-section" data-fn="${fn.name}">
+              <div class="uc-section-head">
+                <div class="uc-section-name">${fn.name}</div>
+                <div class="uc-section-meta">${cards.length} use case${cards.length === 1 ? '' : 's'} &middot; function avg ${fn.avg}</div>
+              </div>
+              <div class="uc-grid">
+                ${cards.map(uc => `
+                  <button class="uc-card" data-uc="${uc.id}" data-fn="${uc.function}" type="button">
+                    <div class="uc-cat uc-cat--${uc.category}">${CATEGORY_LABELS[uc.category]}</div>
+                    <div class="uc-name">${uc.name}</div>
+                    <div class="uc-meta">${uc.ownership} ownership</div>
+                    <div class="uc-maturity uc-maturity--${uc.maturity}">${MATURITY_LABELS[uc.maturity]}</div>
+                  </button>
+                `).join('')}
+              </div>
+            </section>
+          `;
+        }).join('')}
+      </div>
+      <div class="matrix-wrap" id="matrixWrap">
+        <div class="matrix-empty">Select use cases above to plot them on the feasibility &times; ownership matrix.</div>
+      </div>
+
+      <!-- ASSET LIBRARY CALLOUT -->
+      <div class="asset-library">
+        <div class="asset-library-head">
+          <div class="eyebrow">FinanceAI Asset Library</div>
+          <h3>How we deliver these <span class="accent-word">use cases</span></h3>
+          <p>Deloitte FinanceAI is a portfolio of named assets &mdash; user productivity tools, packaged accelerators, agentic platforms, and Product+ solutions &mdash; that combine to deliver the use cases above.</p>
+        </div>
+        <div class="asset-library-grid">
+          <div class="asset-tile">
+            <div class="asset-tile-cat">User Productivity</div>
+            <div class="asset-tile-name">Claude AI</div>
+          </div>
+          <div class="asset-tile">
+            <div class="asset-tile-cat">User Productivity</div>
+            <div class="asset-tile-name">Google Gemini Enterprise</div>
+          </div>
+          <div class="asset-tile">
+            <div class="asset-tile-cat">User Productivity</div>
+            <div class="asset-tile-name">Enterprise GPT</div>
+          </div>
+          <div class="asset-tile">
+            <div class="asset-tile-cat">Agentic Platform</div>
+            <div class="asset-tile-name">Zora AI Advise</div>
+          </div>
+          <div class="asset-tile">
+            <div class="asset-tile-cat">Agentic Platform</div>
+            <div class="asset-tile-name">Zora AI Perform</div>
+          </div>
+          <div class="asset-tile">
+            <div class="asset-tile-cat">Accelerator</div>
+            <div class="asset-tile-name">AI Advantage</div>
+          </div>
+          <div class="asset-tile">
+            <div class="asset-tile-cat">Accelerator</div>
+            <div class="asset-tile-name">PrecisionView</div>
+          </div>
+          <div class="asset-tile">
+            <div class="asset-tile-cat">Accelerator</div>
+            <div class="asset-tile-name">10X (Deloitte + AWS)</div>
+          </div>
+          <div class="asset-tile">
+            <div class="asset-tile-cat">Accelerator</div>
+            <div class="asset-tile-name">NextGen Project Finance Advisor</div>
+          </div>
+          <div class="asset-tile">
+            <div class="asset-tile-cat">Workforce Intelligence</div>
+            <div class="asset-tile-name">Workforce Analyzer</div>
+          </div>
+          <div class="asset-tile">
+            <div class="asset-tile-cat">Workforce Intelligence</div>
+            <div class="asset-tile-name">Organization Digital Twin</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Card click → toggle selection
+    root.querySelectorAll('.uc-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = parseInt(card.dataset.uc, 10);
+        if (appState.prioritizer.selected.has(id)) {
+          appState.prioritizer.selected.delete(id);
+        } else {
+          appState.prioritizer.selected.add(id);
+        }
+        card.classList.toggle('selected');
+        updatePrioritizer();
+      });
+    });
+
+    // Filter clicks — show/hide whole sections instead of individual cards
+    root.querySelectorAll('.uc-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        root.querySelectorAll('.uc-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        root.querySelectorAll('.uc-section').forEach(sec => {
+          sec.classList.toggle('hidden', filter !== 'all' && sec.dataset.fn !== filter);
+        });
+      });
+    });
+
+    document.getElementById('pcClear').addEventListener('click', () => {
+      appState.prioritizer.selected.clear();
+      root.querySelectorAll('.uc-card.selected').forEach(c => c.classList.remove('selected'));
+      updatePrioritizer();
+    });
+  }
+
+  function updatePrioritizer() {
+    const count = appState.prioritizer.selected.size;
+    const countEl = document.getElementById('pcCount');
+    const clearEl = document.getElementById('pcClear');
+    const wrap = document.getElementById('matrixWrap');
+
+    if (countEl) {
+      countEl.innerHTML = `<strong>${count}</strong> selected &middot; 3–5 recommended`;
+      countEl.classList.toggle('over', count > 5);
+    }
+    if (clearEl) clearEl.disabled = count === 0;
+
+    if (!wrap) return;
+
+    if (count === 0) {
+      wrap.innerHTML = `<div class="matrix-empty">Select use cases above to plot them on the feasibility &times; ownership matrix.</div>`;
+      return;
+    }
+
+    const selectedUCs = USE_CASES.filter(uc => appState.prioritizer.selected.has(uc.id));
+    // Sort by strategic priority and assign legend numbers 1..n
+    prioritizeAndNumber(selectedUCs);
+
+    const startHere = selectedUCs.filter(isInStartHere);
+
+    wrap.innerHTML = `
+      <div class="matrix-grid">
+        <div>
+          ${buildMatrixSVG(selectedUCs)}
+        </div>
+        <div class="matrix-legend">
+          <h4>Selected Use Cases</h4>
+          ${selectedUCs.map(uc => `
+            <div class="matrix-legend-item">
+              <div class="matrix-legend-dot ${isInStartHere(uc) ? 'in-start' : ''}">${uc.legendNum}</div>
+              <div>
+                <div class="matrix-legend-name">${uc.name}</div>
+              <div class="matrix-legend-meta">${CATEGORY_LABELS[uc.category]} &middot; ${uc.function} &middot; <span class="meta-maturity meta-maturity--${uc.maturity}">${MATURITY_LABELS[uc.maturity]}</span></div>
+              </div>
+            </div>
+          `).join('')}
+          ${startHere.length > 0 ? `
+            <div class="start-here-callout">
+              <h4>Start Here</h4>
+              <p>${startHere.length === 1
+                ? `<strong style="color: var(--text-primary);">#${startHere[0].legendNum} ${startHere[0].name}</strong> sits in the top-right: high ownership for Finance and high feasibility. It's where you can move first without political friction.`
+                : `Picks <strong style="color: var(--text-primary);">${startHere.map(uc => '#' + uc.legendNum).join(', ')}</strong> sit in the top-right quadrant — Finance owns the outcome and feasibility is high. <strong style="color: var(--text-primary);">#${startHere[0].legendNum} ${startHere[0].name}</strong> ranks highest by feasibility.`}
+              </p>
+            </div>
+          ` : `
+            <div class="start-here-callout">
+              <h4>No Start Here picks yet</h4>
+              <p>None of the selected use cases land in the high-ownership / high-feasibility quadrant. Consider adding one from <em>Knowledge On Demand</em> or <em>Operational Finance</em> agents to anchor your starting point.</p>
+            </div>
+          `}
+        </div>
+      </div>
+    `;
+  }
+
+  function buildMatrixSVG(selected) {
+    const W = 460, H = 420;
+    const padL = 70, padR = 30, padT = 30, padB = 60;
+    const plotW = W - padL - padR;
+    const plotH = H - padT - padB;
+    const x0 = padL, y0 = padT;
+    const x1 = padL + plotW, y1 = padT + plotH;
+    const midX = padL + plotW / 2;
+    const midY = padT + plotH / 2;
+
+    // Quadrant backgrounds (Start Here is top-right)
+    const quads = `
+      <rect x="${midX}" y="${y0}" width="${plotW/2}" height="${plotH/2}" fill="rgba(134, 235, 34, 0.08)"/>
+      <rect x="${x0}" y="${y0}" width="${plotW/2}" height="${plotH/2}" fill="rgba(255,255,255,0.02)"/>
+      <rect x="${x0}" y="${midY}" width="${plotW/2}" height="${plotH/2}" fill="rgba(255,255,255,0.01)"/>
+      <rect x="${midX}" y="${midY}" width="${plotW/2}" height="${plotH/2}" fill="rgba(255,255,255,0.02)"/>
+    `;
+    // Quadrant labels
+    const quadLabels = `
+      <text x="${midX + plotW/4}" y="${y0 + 18}" text-anchor="middle" fill="#86EB22" font-size="11" font-weight="700" font-family="Open Sans, sans-serif" letter-spacing="1.5">START HERE</text>
+      <text x="${x0 + plotW/4}" y="${y0 + 18}" text-anchor="middle" fill="#666" font-size="10" font-weight="600" font-family="Open Sans, sans-serif" letter-spacing="1.5">BUILD CAPABILITY</text>
+      <text x="${x0 + plotW/4}" y="${y1 - 8}" text-anchor="middle" fill="#666" font-size="10" font-weight="600" font-family="Open Sans, sans-serif" letter-spacing="1.5">DEPRIORITIZE</text>
+      <text x="${midX + plotW/4}" y="${y1 - 8}" text-anchor="middle" fill="#666" font-size="10" font-weight="600" font-family="Open Sans, sans-serif" letter-spacing="1.5">PARTNER UP</text>
+    `;
+
+    // Frame + crosshairs
+    const frame = `
+      <rect x="${x0}" y="${y0}" width="${plotW}" height="${plotH}" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+      <line x1="${midX}" y1="${y0}" x2="${midX}" y2="${y1}" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="${x0}" y1="${midY}" x2="${x1}" y2="${midY}" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
+    `;
+
+    // Axis labels
+    const axes = `
+      <text x="${padL - 12}" y="${y0 + 8}" text-anchor="end" fill="#d8d8d8" font-size="10" font-weight="700" font-family="Open Sans, sans-serif">High</text>
+      <text x="${padL - 12}" y="${y1 + 4}" text-anchor="end" fill="#d8d8d8" font-size="10" font-weight="700" font-family="Open Sans, sans-serif">Low</text>
+      <text x="${padL - 40}" y="${midY}" text-anchor="middle" fill="#d8d8d8" font-size="11" font-weight="700" font-family="Open Sans, sans-serif" transform="rotate(-90 ${padL - 40} ${midY})">OWNERSHIP</text>
+
+      <text x="${x0}" y="${y1 + 26}" text-anchor="start" fill="#d8d8d8" font-size="10" font-weight="700" font-family="Open Sans, sans-serif">Lower</text>
+      <text x="${x1}" y="${y1 + 26}" text-anchor="end" fill="#d8d8d8" font-size="10" font-weight="700" font-family="Open Sans, sans-serif">Higher</text>
+      <text x="${midX}" y="${y1 + 46}" text-anchor="middle" fill="#d8d8d8" font-size="11" font-weight="700" font-family="Open Sans, sans-serif">EFFICIENCY GAIN</text>
+    `;
+
+    // Plot dots
+    const dots = selected.map(uc => {
+      const jitter = jitterOffsets(uc, selected);
+      const xNorm = feasibilityToX(uc.feasibility) + jitter.dx;
+      const yNorm = ownershipToY(uc.ownership) + jitter.dy;
+      const cx = x0 + Math.max(0.02, Math.min(0.98, xNorm)) * plotW;
+      const cy = y1 - Math.max(0.02, Math.min(0.98, yNorm)) * plotH; // invert
+      const inStart = isInStartHere(uc);
+      const ringR = inStart ? 18 : 14;
+      const fillR = inStart ? 14 : 11;
+      return `
+        <g>
+          ${inStart ? `<circle cx="${cx}" cy="${cy}" r="${ringR}" fill="none" stroke="#86EB22" stroke-width="1.5" opacity="0.4"/>` : ''}
+          <circle cx="${cx}" cy="${cy}" r="${fillR}" fill="${inStart ? '#86EB22' : '#1f1f1f'}" stroke="#86EB22" stroke-width="2"/>
+          <text x="${cx}" y="${cy + 4}" text-anchor="middle" fill="${inStart ? '#0d0d0d' : '#86EB22'}" font-size="11" font-weight="700" font-family="Open Sans, sans-serif">${uc.legendNum}</text>
+        </g>
+      `;
+    }).join('');
+
+    return `
+      <svg class="matrix-svg" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        ${quads}
+        ${frame}
+        ${quadLabels}
+        ${axes}
+        ${dots}
+      </svg>
+    `;
+  }
+
+  // Initialize Tab 4 prioritizer
+  renderPrioritizer();
+
+  // ============ TAB 6: SYNTHESIS ============
+  function renderSynthesis() {
+    const root = document.getElementById('synthesis');
+    if (!root) return;
+
+    // Assessment state
+    const answered = Object.values(appState.assessment).filter(v => v !== null).length;
+    const totalQ = PILLARS.length;
+
+    // Prioritizer state
+    const selectedIds = Array.from(appState.prioritizer.selected);
+    const selectedUCs = USE_CASES.filter(uc => appState.prioritizer.selected.has(uc.id));
+    prioritizeAndNumber(selectedUCs);
+    const startHere = selectedUCs.filter(isInStartHere);
+
+    // Focus state — array of {id, rank} sorted by rank ascending
+    const focusRanked = Object.entries(appState.focus)
+      .filter(([id, rank]) => rank !== null)
+      .map(([id, rank]) => ({ id, rank }))
+      .sort((a, b) => a.rank - b.rank);
+
+    // Enable/disable print button — any of the three interactions enables print
+    const printBtn = document.getElementById('printBtn');
+    if (printBtn) {
+      printBtn.disabled = (answered === 0 && selectedIds.length === 0 && focusRanked.length === 0);
+    }
+
+    // Build Focus band — render the full Finance role tiles in ranked order (only ranked ones appear)
+    const focusBand = focusRanked.length === 0
+      ? `
+        <div class="syn-focus syn-focus--empty">
+          <div>
+            <span class="eyebrow">Focus Ranking</span>
+            <h3 style="margin: 0.25rem 0 0;">No focus identified yet</h3>
+            <p style="margin: 0.25rem 0 0; font-size: 0.875rem; color: var(--text-tertiary);">Rank the Finance roles on "The Future" to capture where Finance's emphasis sits today.</p>
+          </div>
+          <button class="syn-jump" data-jump="1">Go to The Future &rarr;</button>
+        </div>
+      `
+      : `
+        <div class="syn-focus">
+          <div class="syn-focus-head">
+            <span class="eyebrow">Focus Ranking</span>
+            <h3>Where Finance's emphasis sits today</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.4rem 0 0;">${focusRanked.length === 1 ? 'One role identified.' : focusRanked.length === 2 ? 'Two roles identified.' : 'All three roles identified.'} Shown in ranked order.</p>
+          </div>
+          <div class="syn-focus-tiles">
+            ${focusRanked.map(f => {
+              const r = ROLE_DETAILS[f.id];
+              return `
+                <div class="syn-focus-tile syn-focus-tile--${r.accent} syn-focus-tile--rank${f.rank}">
+                  <div class="syn-focus-tile-rank">${RANK_SHORT[f.rank]}</div>
+                  <div class="syn-focus-tile-tag">${r.name}</div>
+                  <h4>${r.descriptor}</h4>
+                  <p>${r.body}</p>
+                  <ul>
+                    ${r.bullets.map(b => `<li>${b}</li>`).join('')}
+                  </ul>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+
+    // Build assessment panel
+    let assessmentPanel = '';
+    if (answered === 0) {
+      assessmentPanel = `
+        <div class="syn-panel syn-empty">
+          <span class="eyebrow">Readiness Assessment</span>
+          <h3>No assessment data yet</h3>
+          <p>Answer the five-pillar self-assessment on "What Needs to be True" to see your readiness profile here.</p>
+          <button class="syn-jump" data-jump="2">Go to assessment &rarr;</button>
+        </div>
+      `;
+    } else {
+      const scores = PILLARS.map(p => getScore(appState.assessment[p.id]));
+      const radar = buildRadarSVG(scores, PILLARS.map(p => p.name));
+      const readouts = PILLARS.map(p => {
+        const entry = appState.assessment[p.id];
+        if (entry === null) {
+          return `
+            <div class="syn-pillar-readout">
+              <div>
+                <div class="syn-pillar-name">${p.name}</div>
+                <div class="syn-pillar-label">Not answered</div>
+              </div>
+              <div class="syn-pillar-score">—</div>
+            </div>
+          `;
+        }
+        return `
+          <div class="syn-pillar-readout">
+            <div>
+              <div class="syn-pillar-name">${p.name}</div>
+              <div class="syn-pillar-label">"${entry.label}"</div>
+            </div>
+            <div class="syn-pillar-score">Level ${entry.score}</div>
+          </div>
+        `;
+      }).join('');
+      assessmentPanel = `
+        <div class="syn-panel">
+          <span class="eyebrow">Readiness Assessment</span>
+          <h3>Your current state &middot; ${answered} of ${totalQ} answered</h3>
+          ${radar}
+          <div class="syn-readouts-list">${readouts}</div>
+        </div>
+      `;
+    }
+
+    // Build prioritizer panel
+    let prioritizerPanel = '';
+    if (selectedUCs.length === 0) {
+      prioritizerPanel = `
+        <div class="syn-panel syn-empty">
+          <span class="eyebrow">Use Case Selections</span>
+          <h3>No use cases selected yet</h3>
+          <p>Select use cases on "Where to Start" to see where they land on the feasibility &times; ownership matrix.</p>
+          <button class="syn-jump" data-jump="3">Go to prioritizer &rarr;</button>
+        </div>
+      `;
+    } else {
+      const matrix = buildMatrixSVG(selectedUCs);
+      const list = selectedUCs.map(uc => {
+        const inStart = isInStartHere(uc);
+        return `
+          <li>
+            <div class="syn-num ${inStart ? '' : 'dim'}">${uc.legendNum}</div>
+            <div>
+              <div class="syn-name">${uc.name}</div>
+              <div class="syn-meta">${uc.function} &middot; ${uc.ownership} ownership &middot; <span class="meta-maturity meta-maturity--${uc.maturity}">${MATURITY_LABELS[uc.maturity]}</span></div>
+            </div>
+            ${inStart ? '<span class="syn-tag">Start Here</span>' : '<span class="syn-tag muted">Build / Partner</span>'}
+          </li>
+        `;
+      }).join('');
+      prioritizerPanel = `
+        <div class="syn-panel">
+          <span class="eyebrow">Use Case Selections</span>
+          <h3>${selectedUCs.length} selected &middot; ${startHere.length} in Start Here</h3>
+          ${matrix}
+          <ul class="syn-list">${list}</ul>
+        </div>
+      `;
+    }
+
+    root.innerHTML = focusBand + '<div class="syn-panels-grid">' + assessmentPanel + prioritizerPanel + '</div>';
+
+    // Wire jump buttons
+    root.querySelectorAll('.syn-jump').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setTab(parseInt(btn.dataset.jump, 10));
+      });
+    });
+  }
+
+  // Wire print button — opens a visible on-page preview overlay.
+  // The overlay contains the print summary; user can review, then print or close.
+  document.addEventListener('click', (e) => {
+    if (e.target && e.target.id === 'printBtn') {
+      buildPrintSummary();
+      openPrintPreview();
+    }
+    if (e.target && e.target.id === 'printPreviewClose') {
+      closePrintPreview();
+    }
+    if (e.target && e.target.id === 'printPreviewPrint') {
+      try { window.print(); }
+      catch (err) { console.warn('Print blocked:', err); }
+    }
+  });
+
+  function openPrintPreview() {
+    document.body.classList.add('print-preview-open');
+    // Close on Escape
+    document.addEventListener('keydown', escClosesPreview);
+  }
+  function closePrintPreview() {
+    document.body.classList.remove('print-preview-open');
+    document.removeEventListener('keydown', escClosesPreview);
+  }
+  function escClosesPreview(e) { if (e.key === 'Escape') closePrintPreview(); }
+
+  function buildPrintSummary() {
+    // Remove any existing print summary
+    const existing = document.getElementById('printSummary');
+    if (existing) existing.remove();
+
+    const answered = Object.values(appState.assessment).filter(v => v !== null).length;
+    const totalQ = PILLARS.length;
+    const scores = PILLARS.map(p => getScore(appState.assessment[p.id]));
+
+    const selectedUCs = USE_CASES.filter(uc => appState.prioritizer.selected.has(uc.id));
+    prioritizeAndNumber(selectedUCs);
+    const startHere = selectedUCs.filter(isInStartHere);
+
+    // Focus state — ranked Finance roles
+    const focusRanked = Object.entries(appState.focus)
+      .filter(([id, rank]) => rank !== null)
+      .map(([id, rank]) => ({ id, rank }))
+      .sort((a, b) => a.rank - b.rank);
+
+    // Format date
+    const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    // Build focus band content — print version. Show ranked role tiles with body + bullets
+    // so the printed page mirrors what the on-screen synthesis displays.
+    const focusBlock = focusRanked.length === 0
+      ? ''
+      : `
+        <div class="psum-focus">
+          <div class="psum-block-label">Focus Ranking</div>
+          <div class="psum-block-sub">Where Finance's emphasis sits today &middot; ${focusRanked.length} role${focusRanked.length === 1 ? '' : 's'} identified</div>
+          <div class="psum-focus-list">
+            ${focusRanked.map(f => {
+              const r = ROLE_DETAILS[f.id];
+              return `
+                <div class="psum-focus-tile psum-focus-rank-${f.rank} psum-focus-tile--${r.accent}">
+                  <div class="psum-focus-tile-head">
+                    <span class="psum-focus-rank">${RANK_SHORT[f.rank]}</span>
+                    <span class="psum-focus-name">${r.name}</span>
+                  </div>
+                  <div class="psum-focus-desc">${r.descriptor}</div>
+                  <ul class="psum-focus-bullets">
+                    ${r.bullets.map(b => `<li>${b}</li>`).join('')}
+                  </ul>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+
+    // Build readouts — include the option label so each level has meaning
+    const readouts = PILLARS.map(p => {
+      const entry = appState.assessment[p.id];
+      if (entry === null) {
+        return `<div class="psum-pillar"><span class="psum-pillar-name">${p.name}</span><span class="psum-pillar-label">—</span><span class="psum-pillar-lvl">Not answered</span></div>`;
+      }
+      return `<div class="psum-pillar"><span class="psum-pillar-name">${p.name}</span><span class="psum-pillar-label">"${entry.label}"</span><span class="psum-pillar-lvl">Level ${entry.score}</span></div>`;
+    }).join('');
+
+    // Build use case list
+    const ucList = selectedUCs.map(uc => `
+      <li>
+        <span class="psum-ucnum">${uc.legendNum}</span>
+        <span class="psum-ucname">${uc.name}</span>
+        <span class="psum-ucmeta">${uc.function} &middot; ${uc.ownership} ownership${isInStartHere(uc) ? ' &middot; Start Here' : ''} &middot; ${MATURITY_LABELS[uc.maturity]}</span>
+      </li>
+    `).join('');
+
+    // Inject summary
+    const summary = document.createElement('div');
+    summary.id = 'printSummary';
+    summary.innerHTML = `
+      <div class="psum-controls" data-no-print>
+        <button class="psum-btn psum-btn--secondary" id="printPreviewClose" type="button">&larr; Back to tool</button>
+        <button class="psum-btn psum-btn--primary" id="printPreviewPrint" type="button">Print this page</button>
+      </div>
+      <div class="psum-paper">
+      <div class="psum-header">
+        <div>
+          <div class="psum-brand">Deloitte<span style="color: #86BC25;">.</span></div>
+          <div class="psum-tagline">Together makes progress</div>
+        </div>
+        <div class="psum-date">${dateStr}</div>
+      </div>
+
+      <h1 class="psum-title">AI-Enabled Finance &mdash; <em>Readiness Summary</em></h1>
+
+      ${focusBlock}
+
+      <div class="psum-grid">
+        <div class="psum-block">
+          <div class="psum-block-label">Readiness Profile</div>
+          <div class="psum-block-sub">${answered} of ${totalQ} pillars answered</div>
+          ${answered > 0 ? buildPrintRadarSVG(scores, PILLARS.map(p => p.name)) : '<div class="psum-empty">No assessment data captured</div>'}
+          <div class="psum-readouts">${readouts}</div>
+        </div>
+
+        <div class="psum-block">
+          <div class="psum-block-label">Use Case Selections</div>
+          <div class="psum-block-sub">${selectedUCs.length} selected &middot; ${startHere.length} in Start Here quadrant</div>
+          ${selectedUCs.length > 0 ? buildPrintMatrixSVG(selectedUCs) : '<div class="psum-empty">No use cases selected</div>'}
+        </div>
+      </div>
+
+      ${selectedUCs.length > 0 ? `
+        <div class="psum-uclist">
+          <div class="psum-block-label">Selected Use Cases</div>
+          <ol>${ucList}</ol>
+        </div>
+      ` : ''}
+
+      <div class="psum-footer">
+        <div class="psum-source">Source: Deloitte Finance Trends Survey 2026 &middot; Deloitte Q4 2025 CFO Signals Spotlight</div>
+      </div>
+      </div>
+    `;
+    document.body.appendChild(summary);
+  }
+
+  // Light-theme radar for print
+  function buildPrintRadarSVG(scores, labels) {
+    const drawSize = 260, padX = 70, padT = 12, padB = 12;
+    const vbW = drawSize + padX * 2, vbH = drawSize + padT + padB;
+    const cx = vbW / 2, cy = padT + drawSize / 2;
+    const maxR = 95;
+    const n = scores.length;
+    const angleStep = (Math.PI * 2) / n;
+    const startAngle = -Math.PI / 2;
+
+    const gridPolygons = [1, 2, 3].map(level => {
+      const r = (level / 3) * maxR;
+      const pts = [];
+      for (let i = 0; i < n; i++) {
+        const a = startAngle + i * angleStep;
+        pts.push(`${cx + Math.cos(a) * r},${cy + Math.sin(a) * r}`);
+      }
+      return `<polygon points="${pts.join(' ')}" fill="none" stroke="#cccccc" stroke-width="0.75"/>`;
+    }).join('');
+
+    const axes = [];
+    for (let i = 0; i < n; i++) {
+      const a = startAngle + i * angleStep;
+      axes.push(`<line x1="${cx}" y1="${cy}" x2="${cx + Math.cos(a) * maxR}" y2="${cy + Math.sin(a) * maxR}" stroke="#cccccc" stroke-width="0.75"/>`);
+    }
+
+    const dataPts = [];
+    const points = [];
+    for (let i = 0; i < n; i++) {
+      const a = startAngle + i * angleStep;
+      const score = scores[i] === null ? 0 : scores[i];
+      const r = (score / 3) * maxR;
+      const x = cx + Math.cos(a) * r;
+      const y = cy + Math.sin(a) * r;
+      dataPts.push(`${x},${y}`);
+      if (scores[i] !== null) points.push(`<circle cx="${x}" cy="${y}" r="3.5" fill="#86BC25"/>`);
+    }
+
+    const labelEls = [];
+    for (let i = 0; i < n; i++) {
+      const a = startAngle + i * angleStep;
+      const lr = maxR + 20;
+      const lx = cx + Math.cos(a) * lr;
+      const ly = cy + Math.sin(a) * lr;
+      let anchor = 'middle';
+      if (Math.cos(a) > 0.3) anchor = 'start';
+      else if (Math.cos(a) < -0.3) anchor = 'end';
+      labelEls.push(`<text x="${lx}" y="${ly}" text-anchor="${anchor}" dominant-baseline="middle" fill="#333" font-size="9" font-family="Open Sans, sans-serif" font-weight="600">${labels[i]}</text>`);
+    }
+
+    return `
+      <svg class="psum-svg" viewBox="0 0 ${vbW} ${vbH}" xmlns="http://www.w3.org/2000/svg">
+        ${gridPolygons}
+        ${axes.join('')}
+        <polygon points="${dataPts.join(' ')}" fill="rgba(134, 188, 37, 0.3)" stroke="#86BC25" stroke-width="1.5" stroke-linejoin="round"/>
+        ${points.join('')}
+        ${labelEls.join('')}
+      </svg>
+    `;
+  }
+
+  // Light-theme matrix for print
+  function buildPrintMatrixSVG(selected) {
+    const W = 400, H = 360;
+    const padL = 60, padR = 20, padT = 25, padB = 55;
+    const plotW = W - padL - padR, plotH = H - padT - padB;
+    const x0 = padL, y0 = padT;
+    const x1 = padL + plotW, y1 = padT + plotH;
+    const midX = padL + plotW / 2, midY = padT + plotH / 2;
+
+    const quads = `
+      <rect x="${midX}" y="${y0}" width="${plotW/2}" height="${plotH/2}" fill="rgba(134, 188, 37, 0.12)"/>
+      <rect x="${x0}" y="${y0}" width="${plotW/2}" height="${plotH/2}" fill="#f7f7f7"/>
+      <rect x="${x0}" y="${midY}" width="${plotW/2}" height="${plotH/2}" fill="#f7f7f7"/>
+      <rect x="${midX}" y="${midY}" width="${plotW/2}" height="${plotH/2}" fill="#f7f7f7"/>
+    `;
+    const labels = `
+      <text x="${midX + plotW/4}" y="${y0 + 14}" text-anchor="middle" fill="#86BC25" font-size="9" font-weight="700" font-family="Open Sans" letter-spacing="1">START HERE</text>
+      <text x="${x0 + plotW/4}" y="${y0 + 14}" text-anchor="middle" fill="#999" font-size="8" font-weight="600" font-family="Open Sans" letter-spacing="1">BUILD CAPABILITY</text>
+      <text x="${x0 + plotW/4}" y="${y1 - 6}" text-anchor="middle" fill="#999" font-size="8" font-weight="600" font-family="Open Sans" letter-spacing="1">DEPRIORITIZE</text>
+      <text x="${midX + plotW/4}" y="${y1 - 6}" text-anchor="middle" fill="#999" font-size="8" font-weight="600" font-family="Open Sans" letter-spacing="1">PARTNER UP</text>
+    `;
+    const frame = `
+      <rect x="${x0}" y="${y0}" width="${plotW}" height="${plotH}" fill="none" stroke="#999" stroke-width="0.75"/>
+      <line x1="${midX}" y1="${y0}" x2="${midX}" y2="${y1}" stroke="#999" stroke-width="0.5" stroke-dasharray="2 2"/>
+      <line x1="${x0}" y1="${midY}" x2="${x1}" y2="${midY}" stroke="#999" stroke-width="0.5" stroke-dasharray="2 2"/>
+    `;
+    const axes = `
+      <text x="${padL - 8}" y="${y0 + 6}" text-anchor="end" fill="#333" font-size="9" font-weight="600">High</text>
+      <text x="${padL - 8}" y="${y1 + 3}" text-anchor="end" fill="#333" font-size="9" font-weight="600">Low</text>
+      <text x="${padL - 35}" y="${midY}" text-anchor="middle" fill="#333" font-size="9" font-weight="700" transform="rotate(-90 ${padL - 35} ${midY})">OWNERSHIP</text>
+      <text x="${x0}" y="${y1 + 22}" text-anchor="start" fill="#333" font-size="9" font-weight="600">Lower</text>
+      <text x="${x1}" y="${y1 + 22}" text-anchor="end" fill="#333" font-size="9" font-weight="600">Higher</text>
+      <text x="${midX}" y="${y1 + 42}" text-anchor="middle" fill="#333" font-size="9" font-weight="700">EFFICIENCY GAIN</text>
+    `;
+    const dots = selected.map(uc => {
+      const j = jitterOffsets(uc, selected);
+      const xN = Math.max(0.02, Math.min(0.98, feasibilityToX(uc.feasibility) + j.dx));
+      const yN = Math.max(0.02, Math.min(0.98, ownershipToY(uc.ownership) + j.dy));
+      const cx = x0 + xN * plotW;
+      const cy = y1 - yN * plotH;
+      const inStart = isInStartHere(uc);
+      const r = inStart ? 11 : 9;
+      return `
+        <circle cx="${cx}" cy="${cy}" r="${r}" fill="${inStart ? '#86BC25' : '#ffffff'}" stroke="#86BC25" stroke-width="1.5"/>
+        <text x="${cx}" y="${cy + 3.5}" text-anchor="middle" fill="${inStart ? '#fff' : '#86BC25'}" font-size="9" font-weight="700" font-family="Open Sans">${uc.legendNum}</text>
+      `;
+    }).join('');
+
+    return `
+      <svg class="psum-svg" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+        ${quads}
+        ${frame}
+        ${labels}
+        ${axes}
+        ${dots}
+      </svg>
+    `;
+  }
+
+  // Initial render (in case user lands on tab 6 directly)
+  renderSynthesis();
+</script>
+
+</body>
+</html>
